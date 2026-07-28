@@ -1,4 +1,4 @@
-function hideAllPages() {
+function hideAllPages(){
 
     document.getElementById("mainContent").style.display = "none";
 
@@ -9,20 +9,30 @@ function hideAllPages() {
 
 }
 
-function startExperience() {
+
+
+function startExperience(){
 
     document.querySelector(".intro").style.display = "none";
 
+    document.getElementById("mainContent").style.display = "block";
+
 }
 
-function showMessage() {
+
+
+
+function showMessage(){
 
     document.getElementById("message").innerHTML =
-    "💗 Happy Birthday! Today is all about celebrating you. Welcome to Project Bliss ✨";
+    "💗 Happy Birthday! Welcome to your special Project Bliss world ✨";
 
 }
 
-function xoKitty() {
+
+
+
+function xoKitty(){
 
     hideAllPages();
 
@@ -30,7 +40,10 @@ function xoKitty() {
 
 }
 
-function kitkat() {
+
+
+
+function kitkat(){
 
     hideAllPages();
 
@@ -38,7 +51,10 @@ function kitkat() {
 
 }
 
-function puppy() {
+
+
+
+function puppy(){
 
     hideAllPages();
 
@@ -46,7 +62,10 @@ function puppy() {
 
 }
 
-function netflix() {
+
+
+
+function netflix(){
 
     hideAllPages();
 
@@ -54,30 +73,23 @@ function netflix() {
 
 }
 
-function showLetter() {
+
+
+
+function showLetter(){
 
     document.getElementById("letter").innerHTML = `
-    <h2>💌 Dear Bliss,</h2>
+
+    <h2>💌 A Special Letter</h2>
 
     <p>
-    This little website is only the beginning.
-    Every click is a memory, every page is another chapter,
-    and every moment here was made with you in mind.
+    Your real birthday message will go here.
     </p>
 
     <p>
-    Thank you for being someone worth celebrating.
-    I hope this birthday reminds you how loved,
-    appreciated and special you truly are.
+    Made with love 💗
     </p>
 
-    <p>
-    Happy Birthday. 💗✨
-    </p>
-
-    <p>
-    — Jeff
-    </p>
     `;
 
 }
