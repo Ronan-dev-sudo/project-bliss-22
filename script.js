@@ -1,6 +1,16 @@
+function startExperience(){
+
+    document.querySelector(".intro").style.display = "none";
+
+    document.getElementById("mainContent").classList.remove("hidden");
+
+}
+
+
+
 function hideAllPages(){
 
-    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("mainContent").classList.add("hidden");
 
     document.getElementById("xoKittyPage").style.display = "none";
     document.getElementById("kitkatPage").style.display = "none";
@@ -11,24 +21,12 @@ function hideAllPages(){
 
 
 
-function startExperience(){
-
-    document.querySelector(".intro").style.display = "none";
-
-    document.getElementById("mainContent").style.display = "block";
-
-}
-
-
-
-
 function showMessage(){
 
     document.getElementById("message").innerHTML =
-    "💗 Happy Birthday! Welcome to your special Project Bliss world ✨";
+    "💗 Happy Birthday! Welcome to Project Bliss ✨";
 
 }
-
 
 
 
@@ -42,7 +40,6 @@ function xoKitty(){
 
 
 
-
 function kitkat(){
 
     hideAllPages();
@@ -50,7 +47,6 @@ function kitkat(){
     document.getElementById("kitkatPage").style.display = "block";
 
 }
-
 
 
 
@@ -64,7 +60,6 @@ function puppy(){
 
 
 
-
 function netflix(){
 
     hideAllPages();
@@ -75,21 +70,9 @@ function netflix(){
 
 
 
-
 function showLetter(){
 
-    document.getElementById("letter").innerHTML = `
-
-    <h2>💌 A Special Letter</h2>
-
-    <p>
-    Your real birthday message will go here.
-    </p>
-
-    <p>
-    Made with love 💗
-    </p>
-
-    `;
+    document.getElementById("letter").innerHTML =
+    "💌 Your real birthday letter will appear here 💗";
 
 }
