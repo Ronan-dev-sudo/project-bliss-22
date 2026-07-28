@@ -16,14 +16,12 @@ function showMessage() {
 
 function xoKitty() {
 
-    document.body.style.background =
-    "linear-gradient(135deg, #ffd6e7, #ffb6d9)";
+    document.querySelector(".hero").style.display = "none";
+    document.querySelector(".themes").style.display = "none";
 
-    document.getElementById("message").innerHTML =
-    "🎀 Welcome to XO Kitty K-Drama Core 💗✨";
+    document.getElementById("xoKittyPage").style.display = "block";
 
 }
-
 
 
 function kitkat() {
