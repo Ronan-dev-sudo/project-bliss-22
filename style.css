@@ -1,42 +1,90 @@
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #89f7fe, #66a6ff);
-    height: 100vh;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef7);
+    color: #5c2345;
+    text-align: center;
+}
+
+
+.hero {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
 
 h1 {
-    color: #ff4d6d;
-    font-size: 45px;
+    font-size: 50px;
+    color: #ff4f9a;
+    text-shadow: 2px 2px white;
 }
 
-p {
-    font-size: 20px;
-    color: #555;
+
+.hero p {
+    font-size: 22px;
+    max-width: 500px;
 }
+
 
 button {
-    background: #ff4d6d;
-    color: white;
+    margin-top: 25px;
+    padding: 15px 35px;
     border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
+    border-radius: 50px;
+    background: #ff4f9a;
+    color: white;
     font-size: 18px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+
 button:hover {
-    background: #d90429;
+    transform: scale(1.1);
+    background: #ff2f7d;
+}
+
+
+.themes {
+    padding: 50px 20px;
+}
+
+
+h2 {
+    color: #ff4f9a;
+    font-size: 35px;
+}
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+
+.card {
+    background: white;
+    width: 220px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+
+#message {
+    font-size: 25px;
+    color: #ff4f9a;
+    padding: 30px;
 }
