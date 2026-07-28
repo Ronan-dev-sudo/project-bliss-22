@@ -117,3 +117,30 @@ button:hover {
     padding: 30px;
     color: #ff4f9a;
 }
+.hidden {
+    display: none;
+}
+
+
+#xoKittyPage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffc1dd, #ffe6f2);
+    padding: 50px 20px;
+}
+
+
+#xoKittyPage h1 {
+    color: #ff4f9a;
+    font-size: 45px;
+}
+
+
+.memory-box {
+    background: white;
+    padding: 30px;
+    margin: 30px auto;
+    width: 300px;
+    border-radius: 25px;
+    font-size: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
