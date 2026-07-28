@@ -1,59 +1,83 @@
+function hideAllPages() {
+
+    document.getElementById("mainContent").style.display = "none";
+
+    document.getElementById("xoKittyPage").style.display = "none";
+    document.getElementById("kitkatPage").style.display = "none";
+    document.getElementById("puppyPage").style.display = "none";
+    document.getElementById("netflixPage").style.display = "none";
+
+}
+
 function startExperience() {
 
     document.querySelector(".intro").style.display = "none";
 
 }
 
-
 function showMessage() {
 
     document.getElementById("message").innerHTML =
-    "Happy Birthday 💗 May your day be filled with love, laughter and beautiful memories ✨";
+    "💗 Happy Birthday! Today is all about celebrating you. Welcome to Project Bliss ✨";
 
 }
 
-
-
 function xoKitty() {
 
-    document.querySelector(".hero").style.display = "none";
-    document.querySelector(".themes").style.display = "none";
+    hideAllPages();
 
     document.getElementById("xoKittyPage").style.display = "block";
 
 }
 
-
 function kitkat() {
 
-    document.body.style.background =
-    "linear-gradient(135deg, #8b0000, #ff4d4d)";
+    hideAllPages();
 
-    document.getElementById("message").innerHTML =
-    "🍫 Sweet moments, sweet memories. KitKat theme activated ❤️";
+    document.getElementById("kitkatPage").style.display = "block";
 
 }
-
-
 
 function puppy() {
 
-    document.body.style.background =
-    "linear-gradient(135deg, #fff1c1, #ffd6a5)";
+    hideAllPages();
 
-    document.getElementById("message").innerHTML =
-    "🐶 Puppy mode activated! Cute energy only 🐾";
+    document.getElementById("puppyPage").style.display = "block";
 
 }
 
-
-
 function netflix() {
 
-    document.body.style.background =
-    "linear-gradient(135deg, #000000, #8b0000)";
+    hideAllPages();
 
-    document.getElementById("message").innerHTML =
-    "🎬 A Project Bliss Original. Episode 1 begins...";
+    document.getElementById("netflixPage").style.display = "block";
+
+}
+
+function showLetter() {
+
+    document.getElementById("letter").innerHTML = `
+    <h2>💌 Dear Bliss,</h2>
+
+    <p>
+    This little website is only the beginning.
+    Every click is a memory, every page is another chapter,
+    and every moment here was made with you in mind.
+    </p>
+
+    <p>
+    Thank you for being someone worth celebrating.
+    I hope this birthday reminds you how loved,
+    appreciated and special you truly are.
+    </p>
+
+    <p>
+    Happy Birthday. 💗✨
+    </p>
+
+    <p>
+    — Jeff
+    </p>
+    `;
 
 }
