@@ -1,14 +1,53 @@
-const netflixIntro = document.getElementById("netflixIntro");
-const welcomeScreen = document.getElementById("welcomeScreen");
+const screens = {
+    intro: document.getElementById("netflixIntro"),
+    welcome: document.getElementById("welcomeScreen"),
+    themes: document.getElementById("themeScreen")
+};
+
 const startJourney = document.getElementById("startJourney");
 
-// Show the welcome page after the Netflix intro
+const kittyTheme = document.getElementById("kittyTheme");
+const kitkatTheme = document.getElementById("kitkatTheme");
+const puppyTheme = document.getElementById("puppyTheme");
+const movieTheme = document.getElementById("movieTheme");
+
+function showScreen(screen) {
+
+    Object.values(screens).forEach(page => {
+        page.classList.remove("active");
+    });
+
+    screen.classList.add("active");
+
+}
+
+// Netflix Intro → Welcome
 setTimeout(() => {
-    netflixIntro.classList.remove("active");
-    welcomeScreen.classList.add("active");
+
+    showScreen(screens.welcome);
+
 }, 3500);
 
-// Temporary button action
+// Welcome → Theme Selection
 startJourney.addEventListener("click", () => {
-    alert("Theme Selection coming next...");
+
+    showScreen(screens.themes);
+
+});
+
+// Temporary Theme Actions
+kittyTheme.addEventListener("click", () => {
+    alert("💕 XO Kitty is coming next!");
+});
+
+kitkatTheme.addEventListener("click", () => {
+    alert("🍫 KitKat is coming next!");
+});
+
+puppyTheme.addEventListener("click", () => {
+    alert("🐶 Puppy is coming next!");
+});
+
+movieTheme.addEventListener("click", () => {
+    alert("🎬 Netflix Finale is coming later!");
 });
