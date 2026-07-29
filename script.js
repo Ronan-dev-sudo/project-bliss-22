@@ -1,30 +1,200 @@
+
+// ============================
+// PROJECT BLISS V2
+// MAIN CONTROLLER
+// ============================
+
+
 const screens = {
+
     netflix: document.getElementById("netflixScreen"),
+
     welcome: document.getElementById("welcomeScreen"),
+
     theme: document.getElementById("themeScreen"),
+
     xo: document.getElementById("xoScreen"),
+
     kitkat: document.getElementById("kitkatScreen"),
+
     puppy: document.getElementById("puppyScreen"),
+
     final: document.getElementById("finalScreen"),
+
     envelope: document.getElementById("envelopeScreen"),
+
     letter: document.getElementById("letterScreen"),
+
     ending: document.getElementById("endingScreen")
+
 };
 
+
+
 const startBtn = document.getElementById("startBtn");
+
 const envelopeBtn = document.getElementById("envelopeBtn");
+
+const finishBtn = document.getElementById("finishBtn");
+
 const replayBtn = document.getElementById("replayBtn");
-const endingBtn = document.getElementById("endingBtn");
+
+const musicBtn = document.getElementById("musicBtn");
+
+const music = document.getElementById("bgMusic");
 
 const envelope = document.getElementById("envelope");
 
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
 const typewriter = document.getElementById("typewriter");
 
-const nextButtons = document.querySelectorAll(".next-btn");
-const themeCards = document.querySelectorAll(".theme-card");
+
+
+function showScreen(screen){
+
+    Object.values(screens).forEach(section=>{
+
+        section.classList.remove("active");
+
+    });
+
+
+    screen.classList.add("active");
+
+}
+
+
+
+
+// Netflix intro timing
+
+setTimeout(()=>{
+
+    showScreen(screens.welcome);
+
+},3500);
+
+
+
+
+
+// Start journey
+
+startBtn.addEventListener("click",()=>{
+
+
+    showScreen(screens.theme);
+
+
+    if(music){
+
+        music.play().catch(()=>{});
+
+    }
+
+
+    if(musicBtn){
+
+        musicBtn.textContent="🔊";
+
+    }
+
+
+});
+// ============================
+// CHAPTER NAVIGATION
+// ============================
+
+
+const chapters = document.querySelectorAll(".chapter");
+
+
+chapters.forEach(chapter=>{
+
+
+    chapter.addEventListener("click",()=>{
+
+
+        const target = chapter.dataset.target;
+
+
+        showScreen(
+            document.getElementById(target)
+        );
+
+
+    });
+
+
+});
+
+
+
+
+
+// Next buttons inside chapters
+
+
+const nextButtons = document.querySelectorAll(".nextBtn");
+
+
+nextButtons.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        const next = button.dataset.next;
+
+
+        showScreen(
+            document.getElementById(next)
+        );
+
+
+    });
+
+
+});
+
+
+
+
+
+// ============================
+// ENVELOPE
+// ============================
+
+
+envelopeBtn.addEventListener("click",()=>{
+
+
+    showScreen(screens.envelope);
+
+
+});
+
+
+
+
+envelope.addEventListener("click",()=>{
+
+
+    showScreen(screens.letter);
+
+
+    startTyping();
+
+
+});
+
+
+
+
+
+// ============================
+// LETTER
+// ============================
+
 
 const letter = `Hey Bliss,
 
@@ -49,7 +219,9 @@ If I've ever hurt you, I'm truly sorry.
 Please remember:
 
 You are never too much.
+
 You are never a burden.
+
 You can always reach out to me.
 
 I'm always praying for you.
@@ -59,227 +231,168 @@ Happy Birthday, Bliss.
 Love,
 Jeff ❤️`;
 
-function showScreen(screen) {
 
-    Object.values(screens).forEach(s => {
-        s.classList.remove("active");
-    });
 
-    screen.classList.add("active");
-}
+let index = 0;
 
-setTimeout(() => {
-    showScreen(screens.welcome);
-}, 3000);
 
-startBtn.addEventListener("click", () => {
+function startTyping(){
 
-    showScreen(screens.theme);
 
-    if (music.paused) {
+    typewriter.innerHTML="";
 
-        music.play().catch(() => {});
 
-        musicBtn.textContent = "🔊";
+    index=0;
 
-    }
 
-});themeCards.forEach(card => {
+    type();
 
-    card.addEventListener("click", () => {
-
-        const target = card.dataset.target;
-
-        switch (target) {
-
-            case "xoScreen":
-                showScreen(screens.xo);
-                break;
-
-            case "kitkatScreen":
-                showScreen(screens.kitkat);
-                break;
-
-            case "puppyScreen":
-                showScreen(screens.puppy);
-                break;
-
-        }
-
-    });
-
-});
-
-nextButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const next = button.dataset.next;
-
-        switch (next) {
-
-            case "kitkatScreen":
-                showScreen(screens.kitkat);
-                break;
-
-            case "puppyScreen":
-                showScreen(screens.puppy);
-                break;
-
-            case "finalScreen":
-                showScreen(screens.final);
-                break;
-
-        }
-
-    });
-
-});
-
-envelopeBtn.addEventListener("click", () => {
-
-    showScreen(screens.envelope);
-
-});
-
-envelope.addEventListener("click", () => {
-
-    envelope.style.transform = "translateY(-15px) scale(1.05)";
-
-    const flap = envelope.querySelector(".envelope-top");
-
-    flap.style.transition = ".8s";
-
-    flap.style.transform = "rotateX(180deg)";
-
-    const paper = envelope.querySelector(".letter-peek");
-
-    paper.style.transition = "1s";
-
-    paper.style.transform = "translateY(-120px)";
-
-    setTimeout(() => {
-
-        showScreen(screens.letter);
-
-        startTyping();
-
-    }, 1300);
-
-});let typingIndex = 0;
-let typingFinished = false;
-
-function startTyping() {
-
-    typewriter.innerHTML = "";
-    typingIndex = 0;
-    typingFinished = false;
-
-    typeLetter();
 
 }
 
-function typeLetter() {
 
-    if (typingIndex < letter.length) {
 
-        typewriter.innerHTML += letter.charAt(typingIndex);
+function type(){
 
-        typingIndex++;
 
-        typewriter.scrollTop = typewriter.scrollHeight;
+    if(index < letter.length){
 
-        setTimeout(typeLetter, 32);
 
-    } else {
+        typewriter.innerHTML += letter.charAt(index);
 
-        typingFinished = true;
+
+        index++;
+
+
+        setTimeout(type,35);
+
 
     }
+
 
 }
+// ============================
+// LETTER FINISH
+// ============================
 
-endingBtn.addEventListener("click", () => {
 
-    if (!typingFinished) {
+finishBtn.addEventListener("click",()=>{
 
-        typewriter.innerHTML = letter;
-
-        typingFinished = true;
-
-        return;
-
-    }
 
     showScreen(screens.ending);
 
+
 });
 
-musicBtn.addEventListener("click", () => {
 
-    if (music.paused) {
 
-        music.play().catch(() => {});
 
-        musicBtn.textContent = "🔊";
 
-    } else {
+// ============================
+// REPLAY
+// ============================
+
+
+replayBtn.addEventListener("click",()=>{
+
+
+    typewriter.innerHTML="";
+
+
+    index=0;
+
+
+    showScreen(screens.theme);
+
+
+});
+
+
+
+
+
+// ============================
+// MUSIC TOGGLE
+// ============================
+
+
+musicBtn.addEventListener("click",()=>{
+
+
+    if(music.paused){
+
+
+        music.play().catch(()=>{});
+
+
+        musicBtn.textContent="🔊";
+
+
+    }else{
+
 
         music.pause();
 
-        musicBtn.textContent = "🔇";
+
+        musicBtn.textContent="🔇";
+
 
     }
 
-});replayBtn.addEventListener("click", () => {
-
-    // Reset envelope
-    const flap = envelope.querySelector(".envelope-top");
-    const paper = envelope.querySelector(".letter-peek");
-
-    flap.style.transition = "";
-    flap.style.transform = "";
-
-    paper.style.transition = "";
-    paper.style.transform = "";
-
-    envelope.style.transform = "";
-
-    // Reset typewriter
-    typewriter.innerHTML = "";
-    typingIndex = 0;
-    typingFinished = false;
-
-    // Go back to theme selection
-    showScreen(screens.theme);
 
 });
 
-// Prevent music from stopping when changing screens
-music.volume = 0.5;
 
-// Keyboard shortcuts
-document.addEventListener("keydown", (e) => {
 
-    if (e.code === "Space") {
 
-        e.preventDefault();
 
-        if (music.paused) {
+// ============================
+// KEYBOARD MUSIC CONTROL
+// ============================
 
-            music.play().catch(() => {});
-            musicBtn.textContent = "🔊";
 
-        } else {
+document.addEventListener("keydown",(event)=>{
+
+
+    if(event.code==="Space"){
+
+
+        event.preventDefault();
+
+
+        if(music.paused){
+
+
+            music.play().catch(()=>{});
+
+
+            musicBtn.textContent="🔊";
+
+
+        }else{
+
 
             music.pause();
-            musicBtn.textContent = "🔇";
+
+
+            musicBtn.textContent="🔇";
+
 
         }
 
+
     }
+
 
 });
 
-// Initial state
+
+
+
+
+// ============================
+// INITIAL LOAD
+// ============================
+
+
 showScreen(screens.netflix);
