@@ -45,10 +45,7 @@ body{
 
 
 
-/* =========================
-NETFLIX INTRO
-========================= */
-
+/* NETFLIX */
 
 #netflixIntro{
 
@@ -74,7 +71,7 @@ NETFLIX INTRO
 
     margin-top:20px;
 
-    color:#bbb;
+    color:#aaa;
 
     letter-spacing:3px;
 
@@ -82,16 +79,13 @@ NETFLIX INTRO
 
 
 
-
-/* =========================
-WELCOME
-========================= */
+/* WELCOME */
 
 
 #welcomeScreen{
 
     background:
-    radial-gradient(circle,#2b2b2b,#000);
+    radial-gradient(circle,#303030,#000);
 
 }
 
@@ -116,27 +110,25 @@ WELCOME
 
     color:#ddd;
 
-    margin-bottom:40px;
-
     font-size:1.2rem;
+
+    margin-bottom:40px;
 
 }
 
 
 
 
-/* =========================
-BUTTONS
-========================= */
+/* BUTTONS */
 
 
 button{
 
     background:#E50914;
 
-    border:none;
-
     color:white;
+
+    border:none;
 
     padding:16px 45px;
 
@@ -153,22 +145,21 @@ button{
 
 button:hover{
 
-    transform:scale(1.06);
+    transform:scale(1.05);
 
 }
 
 
 
 
-/* =========================
-CHAPTER SELECTION
-========================= */
+/* CHAPTER MENU */
 
 
 #themeScreen{
 
     background:
-    linear-gradient(145deg,#050505,#151515);
+
+    linear-gradient(145deg,#050505,#161616);
 
 }
 
@@ -246,16 +237,13 @@ CHAPTER SELECTION
 
 
 
-
-
-/* =========================
-XO KITTY
-========================= */
+/* XO KITTY */
 
 
 #xoKittyScreen{
 
     background:
+
     linear-gradient(135deg,#ffd4ea,#ff9dcc);
 
     color:#61223f;
@@ -264,10 +252,6 @@ XO KITTY
 
 
 .kitty-content{
-
-    position:relative;
-
-    z-index:2;
 
     max-width:650px;
 
@@ -283,20 +267,11 @@ XO KITTY
 }
 
 
-#xoKittyScreen h1{
-
-    font-size:1rem;
-
-    letter-spacing:4px;
-
-}
-
-
 #xoKittyScreen h2{
 
     font-size:3rem;
 
-    margin:10px;
+    margin:15px;
 
 }
 
@@ -305,17 +280,14 @@ XO KITTY
 
     min-height:120px;
 
-    font-size:1.2rem;
-
     line-height:1.8;
 
 }
 
 
 
-/* =========================
-TRANSITION
-========================= */
+
+/* TRANSITION */
 
 
 #chapterTransition{
@@ -323,16 +295,6 @@ TRANSITION
     background:#000;
 
 }
-
-
-.transition-box h2{
-
-    margin-top:25px;
-
-    letter-spacing:2px;
-
-}
-
 
 
 .loader-circle{
@@ -354,34 +316,14 @@ TRANSITION
 
 
 
-
-/* =========================
-KITKAT
-========================= */
+/* KITKAT */
 
 
 #kitkatScreen{
 
     background:
 
-    linear-gradient(
-
-    135deg,
-
-    #3b1608,
-
-    #7b3418,
-
-    #d2691e
-
-    );
-
-}
-
-
-.kitkat-content{
-
-    max-width:650px;
+    linear-gradient(135deg,#351306,#b35b24);
 
 }
 
@@ -395,11 +337,9 @@ KITKAT
 }
 
 
-#kitkatScreen h1{
+.kitkat-content{
 
-    letter-spacing:4px;
-
-    font-size:1rem;
+    max-width:650px;
 
 }
 
@@ -415,11 +355,84 @@ KITKAT
 
 #kitkatMessage{
 
-    font-size:1.2rem;
+    min-height:120px;
 
     line-height:1.8;
 
-    min-height:100px;
+}
+
+
+
+/* PUPPY CHAPTER */
+
+
+#puppyScreen{
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #87ceeb,
+
+        #dff6ff
+
+    );
+
+    color:#263238;
+
+}
+
+
+
+.puppy-content{
+
+    max-width:650px;
+
+}
+
+
+
+.puppy{
+
+    font-size:7rem;
+
+    animation:puppyJump 1.2s infinite;
+
+}
+
+
+
+#puppyScreen h1{
+
+    font-size:1rem;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+#puppyScreen h2{
+
+    font-size:3rem;
+
+    margin:20px;
+
+}
+
+
+
+#puppyMessage{
+
+    min-height:120px;
+
+    line-height:1.8;
+
+    font-size:1.2rem;
 
 }
 
@@ -427,9 +440,7 @@ KITKAT
 
 
 
-/* =========================
-ANIMATIONS
-========================= */
+/* ANIMATIONS */
 
 
 @keyframes fade{
@@ -494,6 +505,24 @@ transform:translateY(-12px);
 
 
 
+@keyframes puppyJump{
+
+0%,100%{
+
+transform:translateY(0) rotate(0deg);
+
+}
+
+50%{
+
+transform:translateY(-20px) rotate(5deg);
+
+}
+
+}
+
+
+
 @keyframes spin{
 
 to{
@@ -522,15 +551,16 @@ font-size:2.2rem;
 }
 
 
-.kitty,.kitkat-icon{
+.puppy,.kitty,.kitkat-icon{
 
 font-size:5rem;
 
 }
 
 
-#xoKittyScreen h2,
-#kitkatScreen h2{
+#puppyScreen h2,
+#kitkatScreen h2,
+#xoKittyScreen h2{
 
 font-size:2.2rem;
 
