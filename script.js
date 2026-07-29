@@ -44,7 +44,10 @@ puppyNext.style.display="none";
 
 
 
+
 function showScreen(screen){
+
+    if(!screen) return;
 
     Object.values(screens).forEach(page=>{
 
@@ -65,6 +68,7 @@ function showScreen(screen){
 
 
 
+
 setTimeout(()=>{
 
     showScreen(screens.welcome);
@@ -75,11 +79,13 @@ setTimeout(()=>{
 
 
 
+
 startJourney.addEventListener("click",()=>{
 
     showScreen(screens.themes);
 
 });
+
 
 
 
@@ -100,7 +106,6 @@ function typeStory(lines,element,callback){
 
         if(index >= lines.length){
 
-
             if(callback){
 
                 callback();
@@ -116,7 +121,6 @@ function typeStory(lines,element,callback){
         let p=document.createElement("p");
 
         element.appendChild(p);
-
 
 
         let letter=0;
@@ -137,7 +141,9 @@ function typeStory(lines,element,callback){
                 setTimeout(type,35);
 
 
-            }else{
+            }
+
+            else{
 
 
                 index++;
@@ -161,6 +167,8 @@ function typeStory(lines,element,callback){
 
 
 }
+
+
 
 
 
@@ -200,6 +208,7 @@ kittyTheme.addEventListener("click",()=>{
 
     }
 
+
     );
 
 
@@ -212,7 +221,8 @@ kittyTheme.addEventListener("click",()=>{
 
 
 
-// KITTY → KITKAT
+
+// KITTY TO KITKAT
 
 kittyNext.addEventListener("click",()=>{
 
@@ -221,6 +231,7 @@ kittyNext.addEventListener("click",()=>{
 
 
     transitionText.textContent="Loading Chapter Two...";
+
 
 
     setTimeout(()=>{
@@ -270,7 +281,8 @@ kittyNext.addEventListener("click",()=>{
 
 
 
-// KITKAT → PUPPY
+
+// KITKAT TO PUPPY
 
 kitkatNext.addEventListener("click",()=>{
 
@@ -329,7 +341,8 @@ kitkatNext.addEventListener("click",()=>{
 
 
 
-// PUPPY → FINAL CHAPTER
+
+// PUPPY TO FINAL CHAPTER
 
 puppyNext.addEventListener("click",()=>{
 
@@ -344,7 +357,10 @@ puppyNext.addEventListener("click",()=>{
     setTimeout(()=>{
 
 
-        showScreen(screens.final);
+        const finalPage = document.getElementById("finalScreen");
+
+
+        showScreen(finalPage);
 
 
 
@@ -360,12 +376,17 @@ puppyNext.addEventListener("click",()=>{
 
 
 
-// LETTER BUTTON (COMING NEXT)
 
-letterButton.addEventListener("click",()=>{
+// LETTER BUTTON TEMPORARY
+
+if(letterButton){
+
+    letterButton.addEventListener("click",()=>{
 
 
-    alert("💌 The letter chapter is next.");
+        alert("💌 Letter chapter coming next");
 
 
-});
+    });
+
+}
