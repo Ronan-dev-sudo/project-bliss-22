@@ -1,65 +1,55 @@
-// =============================
+
+// ============================
 // PROJECT BLISS V2
-// FLOW CONTROLLER
-// =============================
+// MAIN FLOW
+// ============================
 
 
 const screens = document.querySelectorAll(".screen");
 
 
-function showScreen(id){
+
+function go(id){
+
 
     screens.forEach(screen=>{
 
+
         screen.classList.remove("active");
+
 
     });
 
 
-    const target = document.getElementById(id);
+
+    const next = document.getElementById(id);
 
 
-    if(target){
 
-        target.classList.add("active");
+    if(next){
+
+
+        next.classList.add("active");
+
 
     }
 
-}
-
-
-
-
-// =============================
-// START JOURNEY
-// =============================
-
-
-const startBtn = document.getElementById("startBtn");
-
-
-if(startBtn){
-
-    startBtn.addEventListener("click",()=>{
-
-        showScreen("xoScreen");
-
-    });
 
 }
 
 
 
 
-// =============================
-// AUTO NETFLIX INTRO
-// =============================
+
+// ============================
+// NETFLIX INTRO
+// ============================
 
 
 setTimeout(()=>{
 
 
-    showScreen("welcomeScreen");
+    go("welcome");
 
 
 },4000);
@@ -68,50 +58,22 @@ setTimeout(()=>{
 
 
 
-// =============================
-// CHAPTER FLOW
-// =============================
+// ============================
+// ENVELOPE
+// ============================
 
 
-const nextButtons = document.querySelectorAll(".nextBtn");
+const envelope = document.getElementById("envelopeBox");
 
-
-nextButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        const nextScreen = button.dataset.next;
-
-
-        if(nextScreen){
-
-
-            showScreen(nextScreen);
-
-
-        }
-
-
-    });
-
-
-});
-// =============================
-// ENVELOPE FLOW
-// =============================
-
-
-const envelope = document.getElementById("envelope");
 
 
 if(envelope){
 
+
     envelope.addEventListener("click",()=>{
 
 
-        showScreen("letterScreen");
+        go("letter");
 
 
         startTyping();
@@ -119,21 +81,17 @@ if(envelope){
 
     });
 
+
 }
-
-
-
-
-
-// =============================
+// ============================
 // LETTER TYPEWRITER
-// =============================
+// ============================
 
 
-const typewriter = document.getElementById("typewriter");
+const message = document.getElementById("message");
 
 
-const letterText = `Hey Bliss,
+const letter = `Hey Bliss,
 
 I don't know if I've always been the perfect friend, but I hope today reminds you just how special you are.
 
@@ -156,9 +114,7 @@ If I've ever hurt you, I'm truly sorry.
 Please remember:
 
 You are never too much.
-
 You are never a burden.
-
 You can always reach out to me.
 
 I'm always praying for you.
@@ -177,101 +133,57 @@ let letterIndex = 0;
 function startTyping(){
 
 
-    if(!typewriter){
+    if(!message){
 
         return;
 
     }
 
 
-    typewriter.innerHTML = "";
-
+    message.innerHTML = "";
 
     letterIndex = 0;
 
 
-    writeLetter();
+    type();
 
 
 }
 
 
 
-function writeLetter(){
+function type(){
 
 
-    if(letterIndex < letterText.length){
+    if(letterIndex < letter.length){
 
 
-        typewriter.innerHTML += letterText.charAt(letterIndex);
+        message.innerHTML += letter.charAt(letterIndex);
 
 
         letterIndex++;
 
 
-        setTimeout(writeLetter,35);
+        setTimeout(type,35);
 
 
     }
 
 
 }
-// =============================
-// LETTER FINISH
-// =============================
-
-
-const finishBtn = document.getElementById("finishBtn");
-
-
-if(finishBtn){
-
-    finishBtn.addEventListener("click",()=>{
-
-
-        showScreen("endingScreen");
-
-
-    });
-
-}
 
 
 
 
 
-// =============================
-// REPLAY
-// =============================
+// ============================
+// MUSIC
+// ============================
 
 
-const replayBtn = document.getElementById("replayBtn");
-
-
-if(replayBtn){
-
-    replayBtn.addEventListener("click",()=>{
-
-
-        showScreen("welcomeScreen");
-
-
-    });
-
-}
-
-
-
-
-
-// =============================
-// MUSIC TOGGLE
-// =============================
-
+const music = document.getElementById("music");
 
 const musicBtn = document.getElementById("musicBtn");
-
-const music = document.getElementById("bgMusic");
 
 
 
@@ -306,18 +218,38 @@ if(musicBtn && music){
 
 
 }
+// ============================
+// REPLAY
+// ============================
 
 
+function restart(){
 
 
+    go("welcome");
 
-// =============================
-// START WITH SILENT MUSIC ICON
-// =============================
-
-
-if(music){
-
-    music.volume = 0.5;
 
 }
+
+
+
+
+
+// ============================
+// AUTO MUSIC START ATTEMPT
+// ============================
+
+
+window.addEventListener("load",()=>{
+
+
+    if(music){
+
+
+        music.volume = 0.5;
+
+
+    }
+
+
+});
