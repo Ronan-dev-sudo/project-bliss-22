@@ -4,14 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Project Bliss ❤️</title>
 
-
 <link rel="stylesheet" href="style.css">
-
 
 </head>
 
@@ -19,48 +16,32 @@
 <body>
 
 
-<audio id="bgMusic" loop>
-
-<source src="music.mp3" type="audio/mpeg">
-
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 
-<button id="musicBtn" class="music-btn">
+<button id="musicBtn">
 🔇
 </button>
 
 
 
+<!-- NETFLIX -->
 
+<section id="netflix" class="screen active">
 
-<!-- NETFLIX INTRO -->
+<div class="netflix">
 
-<section id="netflixScreen" class="screen active">
-
-
-<div class="netflix-container">
-
-
-<h1>
-
-N
-
-</h1>
-
+<h1>N</h1>
 
 <p>
-
 PROJECT BLISS
-
 </p>
-
 
 </div>
 
-
 </section>
-
 
 
 
@@ -68,37 +49,25 @@ PROJECT BLISS
 
 <!-- WELCOME -->
 
+<section id="welcome" class="screen">
 
-<section id="welcomeScreen" class="screen">
-
-
-<div class="content">
-
+<div class="box">
 
 <h1>
-
 Happy Birthday Bliss ❤️
-
 </h1>
 
-
 <p>
-
-A small journey created
-to celebrate someone special.
-
+A little cinematic journey made with love.
 </p>
 
 
-<button id="startBtn">
-
+<button onclick="go('xo')">
 Begin Journey ✨
-
 </button>
 
 
 </div>
-
 
 </section>
 
@@ -106,38 +75,29 @@ Begin Journey ✨
 
 
 
-
 <!-- XO KITTY -->
 
-
-<section id="xoScreen" class="screen">
-
-
-<div class="petals"></div>
+<section id="xo" class="screen pink">
 
 
-<div class="content">
-
+<div class="box">
 
 <h1>
-
-XO Kitty 🌸
-
+🌸 XO Kitty
 </h1>
 
 
 <p>
+A reminder of your joy,
+your softness,
+and the things that make you smile.
 
-A little chapter filled with
-softness, smiles and happiness.
-
+Never lose that spark.
 </p>
 
 
-<button class="nextBtn" data-next="kitkatScreen">
-
+<button onclick="go('kitkat')">
 Continue 🍫
-
 </button>
 
 
@@ -151,33 +111,28 @@ Continue 🍫
 
 <!-- KITKAT -->
 
-
-<section id="kitkatScreen" class="screen">
-
-
-<div class="chocolate"></div>
+<section id="kitkat" class="screen chocolate">
 
 
-<div class="content">
+<div class="box">
 
 
 <h1>
-
-KitKat Moments 🍫
-
+🍫 KitKat Moments
 </h1>
 
 
 <p>
 
-Sweet memories, laughter,
-and all the little moments
+Sweet memories,
+small laughs,
+and the little moments
 that make life beautiful.
 
 </p>
 
 
-<button class="nextBtn" data-next="puppyScreen">
+<button onclick="go('puppy')">
 
 Continue 🐶
 
@@ -197,33 +152,31 @@ Continue 🐶
 
 <!-- PUPPY -->
 
-
-<section id="puppyScreen" class="screen">
-
-
-<div class="paws"></div>
+<section id="puppy" class="screen puppy">
 
 
-<div class="content">
+<div class="box">
 
 
 <h1>
 
-Puppy Dreams 🐶
+🐶 Puppy Dreams
 
 </h1>
 
 
 <p>
 
-A dream of warmth,
+A future full of warmth,
+love,
 a beautiful home,
-and a future full of love.
+and all the dreams
+you carry.
 
 </p>
 
 
-<button class="nextBtn" data-next="finalScreen">
+<button onclick="go('final')">
 
 Continue ✨
 
@@ -243,31 +196,30 @@ Continue ✨
 
 <!-- FINAL -->
 
+<section id="final" class="screen final">
 
-<section id="finalScreen" class="screen">
 
-
-<div class="content">
+<div class="box">
 
 
 <h1>
 
-The Final Chapter ✨
+✨ The Final Chapter
 
 </h1>
 
 
 <p>
 
-The best parts of your story
-are still waiting ahead.
+The best pages of your story
+are still waiting to be written.
 
 </p>
 
 
-<button class="nextBtn" data-next="envelopeScreen">
+<button onclick="go('envelope')">
 
-Open Gift 💌
+Open Your Gift 💌
 
 </button>
 
@@ -285,25 +237,19 @@ Open Gift 💌
 
 <!-- ENVELOPE -->
 
-
-<section id="envelopeScreen" class="screen">
-
-
-<div class="envelope" id="envelope">
+<section id="envelope" class="screen">
 
 
-<div class="flap"></div>
+<div id="envelopeBox">
 
-
-<div class="paper"></div>
-
+💌
 
 </div>
 
 
 <p>
 
-Tap the envelope 💌
+Tap the envelope
 
 </p>
 
@@ -315,24 +261,21 @@ Tap the envelope 💌
 
 <!-- LETTER -->
 
+<section id="letter" class="screen">
 
-<section id="letterScreen" class="screen">
 
-
-<div class="letter-card">
+<div class="letter">
 
 
 <h1>
-
 For Bliss ❤️
-
 </h1>
 
 
-<div id="typewriter"></div>
+<p id="message"></p>
 
 
-<button id="finishBtn">
+<button onclick="go('ending')">
 
 Continue ✨
 
@@ -352,14 +295,10 @@ Continue ✨
 
 <!-- ENDING -->
 
-
-<section id="endingScreen" class="screen">
-
-
-<div class="stars"></div>
+<section id="ending" class="screen stars">
 
 
-<div class="ending-content">
+<div class="box">
 
 
 <h1>
@@ -371,9 +310,9 @@ Happy Birthday Bliss ✨
 
 <p>
 
-May your year be filled with
-love, peace, happiness,
-and beautiful moments.
+May this year bring you love,
+peace, happiness,
+and everything you have been praying for.
 
 </p>
 
@@ -385,7 +324,7 @@ Love, Jeff ❤️
 </h2>
 
 
-<button id="replayBtn">
+<button onclick="restart()">
 
 Replay Journey 🔄
 
@@ -407,6 +346,5 @@ Replay Journey 🔄
 
 
 </body>
-
 
 </html>
