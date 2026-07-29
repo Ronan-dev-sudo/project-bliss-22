@@ -1,357 +1,285 @@
 const screens = {
-
-    intro: document.getElementById("netflixIntro"),
+    netflix: document.getElementById("netflixScreen"),
     welcome: document.getElementById("welcomeScreen"),
-    themes: document.getElementById("themeScreen"),
-    kitty: document.getElementById("xoKittyScreen"),
-    transition: document.getElementById("chapterTransition"),
+    theme: document.getElementById("themeScreen"),
+    xo: document.getElementById("xoScreen"),
     kitkat: document.getElementById("kitkatScreen"),
     puppy: document.getElementById("puppyScreen"),
     final: document.getElementById("finalScreen"),
-    letter: document.getElementById("letterScreen")
-
+    envelope: document.getElementById("envelopeScreen"),
+    letter: document.getElementById("letterScreen"),
+    ending: document.getElementById("endingScreen")
 };
 
-const startJourney = document.getElementById("startJourney");
+const startBtn = document.getElementById("startBtn");
+const envelopeBtn = document.getElementById("envelopeBtn");
+const replayBtn = document.getElementById("replayBtn");
+const endingBtn = document.getElementById("endingBtn");
 
-const kittyTheme = document.getElementById("kittyTheme");
+const envelope = document.getElementById("envelope");
 
-const kittyNext = document.getElementById("kittyNext");
-const kitkatNext = document.getElementById("kitkatNext");
-const puppyNext = document.getElementById("puppyNext");
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
-const letterButton = document.getElementById("letterButton");
-const finishStory = document.getElementById("finishStory");
+const typewriter = document.getElementById("typewriter");
 
-const kittyMessage = document.getElementById("kittyMessage");
-const kitkatMessage = document.getElementById("kitkatMessage");
-const puppyMessage = document.getElementById("puppyMessage");
+const nextButtons = document.querySelectorAll(".next-btn");
+const themeCards = document.querySelectorAll(".theme-card");
 
-const transitionText = document.getElementById("transitionText");
+const letter = `Hey Bliss,
 
-const letterContent = document.getElementById("letterContent");
-const signature = document.querySelector(".signature");
+I don't know if I've always been the perfect friend, but I hope today reminds you just how special you are.
 
-kittyNext.style.display="none";
-kitkatNext.style.display="none";
-puppyNext.style.display="none";
+I know this season hasn't been easy. I see you trying every day, and I'm proud of you for continuing to show up.
 
-if(finishStory){
-    finishStory.style.display="none";
-}
+You never have to pretend you're okay with me. I'll celebrate your happy days and stand beside you through the difficult ones.
 
-if(signature){
-    signature.style.display="none";
-}
+I truly believe brighter days are ahead.
 
-function showScreen(screen){
+The right guy will come.
 
-    if(!screen) return;
+You'll discover the path meant for you.
 
-    Object.values(screens).forEach(page=>{
+You'll have that beautiful home you've dreamed about, full of pink, warmth, and puppies.
 
-        if(page){
+You'll find genuine people who pour into your life the same way you pour into theirs.
 
-            page.classList.remove("active");
+If I've ever hurt you, I'm truly sorry.
 
-        }
+Please remember:
 
+You are never too much.
+You are never a burden.
+You can always reach out to me.
+
+I'm always praying for you.
+
+Happy Birthday, Bliss.
+
+Love,
+Jeff ❤️`;
+
+function showScreen(screen) {
+
+    Object.values(screens).forEach(s => {
+        s.classList.remove("active");
     });
 
     screen.classList.add("active");
-
 }
 
-setTimeout(()=>{
-
+setTimeout(() => {
     showScreen(screens.welcome);
+}, 3000);
 
-},3500);
+startBtn.addEventListener("click", () => {
 
-startJourney.addEventListener("click",()=>{
+    showScreen(screens.theme);
 
-    showScreen(screens.themes);
+    if (music.paused) {
 
-});
+        music.play().catch(() => {});
 
-function typeStory(lines,element,callback){
-
-    element.innerHTML="";
-
-    let index=0;
-
-    function nextLine(){
-
-        if(index>=lines.length){
-
-            if(callback){
-                callback();
-            }
-
-            return;
-
-        }
-
-        const p=document.createElement("p");
-
-        element.appendChild(p);
-
-        let letter=0;
-
-        function type(){
-
-            if(letter<lines[index].length){
-
-                p.textContent+=lines[index][letter];
-
-                letter++;
-
-                setTimeout(type,35);
-
-            }else{
-
-                index++;
-
-                setTimeout(nextLine,700);
-
-            }
-
-        }
-
-        type();
+        musicBtn.textContent = "🔊";
 
     }
 
-    nextLine();
+});themeCards.forEach(card => {
 
-}
+    card.addEventListener("click", () => {
 
-// CHAPTER ONE
+        const target = card.dataset.target;
 
-kittyTheme.addEventListener("click",()=>{
+        switch (target) {
 
-    showScreen(screens.kitty);
+            case "xoScreen":
+                showScreen(screens.xo);
+                break;
 
-    typeStory([
+            case "kitkatScreen":
+                showScreen(screens.kitkat);
+                break;
 
-        "Some people bring chaos...",
+            case "puppyScreen":
+                showScreen(screens.puppy);
+                break;
 
-        "...you somehow bring comfort too.",
-
-        "That's rare.",
-
-        "So today we celebrate you. 💕"
-
-    ],kittyMessage,()=>{
-
-        kittyNext.style.display="inline-block";
+        }
 
     });
 
 });
 
-// KITTY → KITKAT
+nextButtons.forEach(button => {
 
-kittyNext.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
-    showScreen(screens.transition);
+        const next = button.dataset.next;
 
-    transitionText.textContent="Loading Chapter Two...";
+        switch (next) {
 
-    setTimeout(()=>{
+            case "kitkatScreen":
+                showScreen(screens.kitkat);
+                break;
 
-        showScreen(screens.kitkat);
+            case "puppyScreen":
+                showScreen(screens.puppy);
+                break;
 
-        typeStory([
-
-            "Life can get overwhelming sometimes...",
-
-            "But even small moments matter.",
-
-            "Don't forget to pause.",
-
-            "You deserve sweet moments too. 🍫"
-
-        ],kitkatMessage,()=>{
-
-            kitkatNext.style.display="inline-block";
-
-        });
-
-    },2500);
-
-});
-
-// KITKAT → PUPPY
-
-kitkatNext.addEventListener("click",()=>{
-
-    showScreen(screens.transition);
-
-    transitionText.textContent="Loading Chapter Three...";
-
-    setTimeout(()=>{
-
-        showScreen(screens.puppy);
-
-        typeStory([
-
-            "Some happiness is simple.",
-
-            "A warm heart.",
-
-            "A loyal friend.",
-
-            "A reason to smile. 🐶"
-
-        ],puppyMessage,()=>{
-
-            puppyNext.style.display="inline-block";
-
-        });
-
-    },2500);
-
-});
-
-// PUPPY → FINAL
-
-puppyNext.addEventListener("click",()=>{
-
-    showScreen(screens.transition);
-
-    transitionText.textContent="Preparing the final chapter...";
-
-    setTimeout(()=>{
-
-        showScreen(screens.final);
-
-    },3000);
-
-});// ==========================
-// FINAL CHAPTER → LETTER
-// ==========================
-
-const letterLines = [
-
-"Hey Bliss,",
-
-"I don't know how good of a friend I have been to you, but I hope today reminds you just how special you are.",
-
-"I know this season hasn't been easy. I see you trying every single day, even when it's exhausting. I'm proud of you for continuing to show up.",
-
-"You never have to pretend you're okay when it comes to me. I'll gladly celebrate your happiest days, but I'll also walk beside you through the difficult ones.",
-
-"I truly believe brighter days are ahead.",
-
-"The right guy will come.",
-
-"You'll discover the path that was always meant for you.",
-
-"You'll have that beautiful home you've dreamed about, filled with pink, warmth, laughter, and probably more puppies than anyone can count.",
-
-"You'll find genuine people who pour into your life the same way you pour into others.",
-
-"If I've ever made you feel hurt or unseen in any way, I'm truly sorry.",
-
-"And please remember this...", 
-
-"You are never too much.",
-
-"You are never a burden.",
-
-"You can always reach out to me.",
-
-"I'm always praying for you.",
-
-"Happy Birthday, Bliss. ❤️"
-
-];
-
-function typeLetter(lines, callback){
-
-    letterContent.innerHTML = "";
-
-    let lineIndex = 0;
-
-    function nextLine(){
-
-        if(lineIndex >= lines.length){
-
-            if(signature){
-                signature.style.display = "block";
-            }
-
-            if(finishStory){
-                finishStory.style.display = "inline-block";
-            }
-
-            if(callback){
-                callback();
-            }
-
-            return;
-        }
-
-        const p = document.createElement("p");
-        letterContent.appendChild(p);
-
-        let charIndex = 0;
-
-        function typeCharacter(){
-
-            if(charIndex < lines[lineIndex].length){
-
-                p.textContent += lines[lineIndex][charIndex];
-
-                charIndex++;
-
-                setTimeout(typeCharacter,28);
-
-            }else{
-
-                lineIndex++;
-
-                setTimeout(nextLine,900);
-
-            }
+            case "finalScreen":
+                showScreen(screens.final);
+                break;
 
         }
 
-        typeCharacter();
+    });
 
-    }
+});
 
-    nextLine();
+envelopeBtn.addEventListener("click", () => {
 
-}
+    showScreen(screens.envelope);
 
-if(letterButton){
+});
 
-    letterButton.addEventListener("click",()=>{
+envelope.addEventListener("click", () => {
+
+    envelope.style.transform = "translateY(-15px) scale(1.05)";
+
+    const flap = envelope.querySelector(".envelope-top");
+
+    flap.style.transition = ".8s";
+
+    flap.style.transform = "rotateX(180deg)";
+
+    const paper = envelope.querySelector(".letter-peek");
+
+    paper.style.transition = "1s";
+
+    paper.style.transform = "translateY(-120px)";
+
+    setTimeout(() => {
 
         showScreen(screens.letter);
 
-        if(signature){
-            signature.style.display="none";
-        }
+        startTyping();
 
-        if(finishStory){
-            finishStory.style.display="none";
-        }
+    }, 1300);
 
-        typeLetter(letterLines);
+});let typingIndex = 0;
+let typingFinished = false;
 
-    });
+function startTyping() {
+
+    typewriter.innerHTML = "";
+    typingIndex = 0;
+    typingFinished = false;
+
+    typeLetter();
+
+}
+
+function typeLetter() {
+
+    if (typingIndex < letter.length) {
+
+        typewriter.innerHTML += letter.charAt(typingIndex);
+
+        typingIndex++;
+
+        typewriter.scrollTop = typewriter.scrollHeight;
+
+        setTimeout(typeLetter, 32);
+
+    } else {
+
+        typingFinished = true;
+
+    }
 
 }
 
-if(finishStory){
+endingBtn.addEventListener("click", () => {
 
-    finishStory.addEventListener("click",()=>{
+    if (!typingFinished) {
 
-        alert("✨ Final stars ending coming next.");
+        typewriter.innerHTML = letter;
 
-    });
+        typingFinished = true;
 
-}
+        return;
+
+    }
+
+    showScreen(screens.ending);
+
+});
+
+musicBtn.addEventListener("click", () => {
+
+    if (music.paused) {
+
+        music.play().catch(() => {});
+
+        musicBtn.textContent = "🔊";
+
+    } else {
+
+        music.pause();
+
+        musicBtn.textContent = "🔇";
+
+    }
+
+});replayBtn.addEventListener("click", () => {
+
+    // Reset envelope
+    const flap = envelope.querySelector(".envelope-top");
+    const paper = envelope.querySelector(".letter-peek");
+
+    flap.style.transition = "";
+    flap.style.transform = "";
+
+    paper.style.transition = "";
+    paper.style.transform = "";
+
+    envelope.style.transform = "";
+
+    // Reset typewriter
+    typewriter.innerHTML = "";
+    typingIndex = 0;
+    typingFinished = false;
+
+    // Go back to theme selection
+    showScreen(screens.theme);
+
+});
+
+// Prevent music from stopping when changing screens
+music.volume = 0.5;
+
+// Keyboard shortcuts
+document.addEventListener("keydown", (e) => {
+
+    if (e.code === "Space") {
+
+        e.preventDefault();
+
+        if (music.paused) {
+
+            music.play().catch(() => {});
+            musicBtn.textContent = "🔊";
+
+        } else {
+
+            music.pause();
+            musicBtn.textContent = "🔇";
+
+        }
+
+    }
+
+});
+
+// Initial state
+showScreen(screens.netflix);
