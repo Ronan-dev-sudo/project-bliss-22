@@ -1,266 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Project Bliss ❤️</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- Music Toggle -->
-    <button id="musicBtn" class="music-btn">
-        🔇
-    </button>
+<!-- MUSIC -->
 
-    <!-- ================= NETFLIX INTRO ================= -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <section class="screen active" id="netflixScreen">
 
-        <h1 class="netflix-logo">PROJECT BLISS</h1>
+<button id="musicBtn" class="music-btn">
+    🔇
+</button>
 
-    </section>
 
-    <!-- ================= WELCOME ================= -->
 
-    <section class="screen" id="welcomeScreen">
+<!-- =========================
+     NETFLIX INTRO
+========================= -->
 
-        <div class="welcome-box">
 
-            <h1>Happy Birthday Bliss ❤️</h1>
+<section id="netflixScreen" class="screen active">
 
-            <p>
-                This isn't just a website.
+    <div class="netflix-container">
 
-                It's a small journey...
-                made with love,
-                memories,
-                laughter,
-                and hope.
-            </p>
+        <h1>
+            PROJECT BLISS
+        </h1>
 
-            <button id="startBtn" class="main-btn">
-                Begin
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= THEME SELECT ================= -->
-
-    <section class="screen" id="themeScreen">
-
-        <h2>Choose a memory ✨</h2>
-
-        <div class="theme-grid">
-
-            <button class="theme-card" data-target="xoScreen">
-                🌸
-                <span>XO Kitty</span>
-            </button>
-
-            <button class="theme-card" data-target="kitkatScreen">
-                🍫
-                <span>KitKat</span>
-            </button>
-
-            <button class="theme-card" data-target="puppyScreen">
-                🐶
-                <span>Puppies</span>
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= XO KITTY ================= -->
-
-    <section class="screen theme-screen" id="xoScreen">
-
-        <div class="theme-content">
-
-            <h2>XO Kitty 🌸</h2>
-
-            <div class="image-placeholder">
-                <p>Place XO Kitty photo here</p>
-            </div>
-
-            <p class="theme-text">
-                Every time I hear about XO Kitty,
-                I immediately think of you.
-                Your excitement has always been contagious,
-                and somehow you've made that world feel a little
-                more special just by loving it.
-            </p>
-
-            <button class="next-btn" data-next="kitkatScreen">
-                Next →
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= KITKAT ================= -->
-
-    <section class="screen theme-screen" id="kitkatScreen">
-
-        <div class="theme-content">
-
-            <h2>KitKat 🍫</h2>
-
-            <div class="image-placeholder">
-                <p>Place KitKat photo here</p>
-            </div>
-
-            <p class="theme-text">
-                Some people smile because life is easy.
-
-                You smile even after difficult days.
-
-                I hope life gives you every reason
-                to keep smiling,
-                one chocolate at a time.
-            </p>
-
-            <button class="next-btn" data-next="puppyScreen">
-                Next →
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= PUPPIES ================= -->
-
-    <section class="screen theme-screen" id="puppyScreen">
-
-        <div class="theme-content">
-
-            <h2>Puppies 🐶</h2>
-
-            <div class="image-placeholder">
-                <p>Place Puppy photo here</p>
-            </div>
-
-            <p class="theme-text">
-                I still believe one day
-                you'll have the beautiful home
-                you've always imagined...
-
-                Filled with warmth,
-
-                tiny paws,
-
-                laughter,
-
-                and lots of love.
-            </p>
-
-            <button class="next-btn" data-next="finalScreen">
-                Continue →
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= FINAL ================= -->
-
-    <section class="screen" id="finalScreen">
-
-        <div class="final-content">
-
-            <h1>One Last Thing...</h1>
-
-            <p>
-                Before today ends,
-                there's something I want you to read.
-            </p>
-
-            <button id="envelopeBtn" class="main-btn">
-                Open Letter ❤️
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ================= ENVELOPE ================= -->
-
-    <section class="screen" id="envelopeScreen">
-
-        <div id="envelope" class="envelope">
-
-            <div class="envelope-top"></div>
-
-            <div class="envelope-body"></div>
-
-            <div class="letter-peek"></div>
-
-        </div>
-
-        <p class="tap-text">
-            Tap the envelope
+        <p>
+            A birthday story
         </p>
 
-    </section>
+    </div>
 
-    <!-- ================= LETTER ================= -->
+</section>
 
-    <section class="screen" id="letterScreen">
 
-        <div class="letter-card">
 
-            <h2>For Bliss ❤️</h2>
 
-            <div id="typewriter" class="typewriter"></div>
 
-            <button id="endingBtn" class="main-btn">
-                Finish
-            </button>
+<!-- =========================
+     WELCOME
+========================= -->
 
+
+<section id="welcomeScreen" class="screen">
+
+    <div class="content">
+
+        <h1>
+            Happy Birthday Bliss ❤️
+        </h1>
+
+
+        <p>
+            A small journey created with love,
+            memories and prayers.
+
+            Welcome to your little birthday film.
+        </p>
+
+
+        <button id="startBtn">
+            Begin Journey ✨
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================
+     CHAPTER SELECT
+========================= -->
+
+
+<section id="themeScreen" class="screen">
+
+
+    <h2>
+        Choose a chapter ✨
+    </h2>
+
+
+    <div class="chapter-container">
+
+
+        <button class="chapter" data-target="xoScreen">
+
+            <span>
+                🌸
+            </span>
+
+            XO Kitty
+
+        </button>
+
+
+
+        <button class="chapter" data-target="kitkatScreen">
+
+            <span>
+                🍫
+            </span>
+
+            KitKat
+
+        </button>
+
+
+
+        <button class="chapter" data-target="puppyScreen">
+
+            <span>
+                🐶
+            </span>
+
+            Puppies
+
+        </button>
+
+
+    </div>
+
+
+</section>
+<!-- =========================
+     XO KITTY CHAPTER
+========================= -->
+
+
+<section id="xoScreen" class="screen chapter-screen">
+
+    <div class="background-effect petals"></div>
+
+
+    <div class="content">
+
+        <div class="icon">
+            🌸
         </div>
 
-    </section>
 
-    <!-- ================= ENDING ================= -->
+        <h1>
+            XO Kitty
+        </h1>
 
-    <section class="screen" id="endingScreen">
 
-        <div id="stars"></div>
+        <p>
+            A little reminder of the things
+            that make you smile.
 
-        <div class="ending-content">
+            Your joy is beautiful,
+            and I hope you never lose that spark.
+        </p>
 
-            <h1>Happy Birthday Bliss ✨</h1>
 
-            <p>
-                May this year surprise you
-                in the most beautiful ways.
-            </p>
+        <button class="nextBtn" data-next="kitkatScreen">
+            Continue 🍫
+        </button>
 
-            <button id="replayBtn" class="main-btn">
-                Replay
-            </button>
 
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     KITKAT CHAPTER
+========================= -->
+
+
+<section id="kitkatScreen" class="screen chapter-screen">
+
+
+    <div class="background-effect chocolate"></div>
+
+
+    <div class="content">
+
+
+        <div class="icon">
+            🍫
         </div>
 
-    </section>
 
-    <script src="script.js"></script>
+        <h1>
+            KitKat Moments
+        </h1>
+
+
+        <p>
+            Life has its sweet moments
+            and its difficult ones.
+
+            I hope this year brings you
+            more reasons to smile,
+            laugh and enjoy the little things.
+        </p>
+
+
+        <button class="nextBtn" data-next="puppyScreen">
+            Continue 🐶
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     PUPPY CHAPTER
+========================= -->
+
+
+<section id="puppyScreen" class="screen chapter-screen">
+
+
+    <div class="background-effect paws"></div>
+
+
+    <div class="content">
+
+
+        <div class="icon">
+            🐶
+        </div>
+
+
+        <h1>
+            Puppy Dreams
+        </h1>
+
+
+        <p>
+            I hope one day you wake up
+            in the beautiful home you imagined.
+
+            Full of warmth,
+            pink,
+            happiness,
+            and tiny paws running around.
+        </p>
+
+
+        <button class="nextBtn" data-next="finalScreen">
+            One Last Thing ❤️
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     FINAL CHAPTER
+========================= -->
+
+
+<section id="finalScreen" class="screen">
+
+
+    <div class="content">
+
+
+        <h1>
+            Before You Go...
+        </h1>
+
+
+        <p>
+            There is something important
+            I want you to read.
+        </p>
+
+
+        <button id="envelopeBtn">
+            Open Letter 💌
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     ENVELOPE
+========================= -->
+
+
+<section id="envelopeScreen" class="screen">
+
+
+    <div id="envelope" class="envelope">
+
+
+        <div class="flap"></div>
+
+
+        <div class="paper"></div>
+
+
+    </div>
+
+
+    <p>
+        Tap the envelope
+    </p>
+
+
+</section>
+<!-- =========================
+     LETTER SCREEN
+========================= -->
+
+
+<section id="letterScreen" class="screen">
+
+
+    <div class="letter-card">
+
+
+        <h1>
+            For Bliss ❤️
+        </h1>
+
+
+        <div id="typewriter"></div>
+
+
+        <button id="finishBtn">
+            Continue ✨
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     STAR ENDING
+========================= -->
+
+
+<section id="endingScreen" class="screen">
+
+
+    <div class="stars"></div>
+
+
+    <div class="ending-content">
+
+
+        <h1>
+            Happy Birthday Bliss ✨
+        </h1>
+
+
+        <p>
+            May this year bring you
+            love, peace, happiness,
+            and everything you've been praying for.
+        </p>
+
+
+        <h2>
+            Love, Jeff ❤️
+        </h2>
+
+
+        <button id="replayBtn">
+            Replay Journey 🔄
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+<script src="script.js"></script>
+
 
 </body>
+
 </html>
