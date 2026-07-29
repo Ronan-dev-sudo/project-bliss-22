@@ -5,9 +5,11 @@ const screens = {
     themes: document.getElementById("themeScreen"),
     kitty: document.getElementById("xoKittyScreen"),
     transition: document.getElementById("chapterTransition"),
-    kitkat: document.getElementById("kitkatScreen")
+    kitkat: document.getElementById("kitkatScreen"),
+    puppy: document.getElementById("puppyScreen")
 
 };
+
 
 
 const startJourney = document.getElementById("startJourney");
@@ -16,19 +18,26 @@ const kittyTheme = document.getElementById("kittyTheme");
 
 const kittyNext = document.getElementById("kittyNext");
 
-const kittyMessage = document.getElementById("kittyMessage");
+const kitkatNext = document.getElementById("kitkatNext");
 
-const transitionText = document.getElementById("transitionText");
+const puppyNext = document.getElementById("puppyNext");
+
+
+
+const kittyMessage = document.getElementById("kittyMessage");
 
 const kitkatMessage = document.getElementById("kitkatMessage");
 
-const kitkatNext = document.getElementById("kitkatNext");
+const puppyMessage = document.getElementById("puppyMessage");
+
+const transitionText = document.getElementById("transitionText");
+
 
 
 
 kittyNext.style.display = "none";
 
-kitkatNext.style.display = "inline-block";
+
 
 
 
@@ -48,7 +57,8 @@ function showScreen(screen){
 
 
 
-// Netflix Intro → Welcome
+
+// Intro
 
 setTimeout(()=>{
 
@@ -60,7 +70,7 @@ setTimeout(()=>{
 
 
 
-// Welcome → Chapter Selection
+// Welcome
 
 startJourney.addEventListener("click",()=>{
 
@@ -72,33 +82,15 @@ startJourney.addEventListener("click",()=>{
 
 
 
-// XO KITTY STORY
-
-const kittyLines = [
-
-    "Some people bring chaos...",
-
-    "...you somehow bring comfort too.",
-
-    "That's rare.",
-
-    "So today we celebrate you.",
-
-    "The girl who keeps showing up. 💕"
-
-];
 
 
-
-
-function typeStory(lines, element, callback){
+function typeStory(lines,element,callback){
 
 
     element.innerHTML="";
 
 
     let index=0;
-
 
 
     function nextLine(){
@@ -113,16 +105,17 @@ function typeStory(lines, element, callback){
 
             }
 
+
             return;
 
         }
 
 
 
-        let paragraph=document.createElement("p");
+        let p=document.createElement("p");
 
 
-        element.appendChild(paragraph);
+        element.appendChild(p);
 
 
 
@@ -136,7 +129,7 @@ function typeStory(lines, element, callback){
             if(letter < lines[index].length){
 
 
-                paragraph.textContent += lines[index][letter];
+                p.textContent += lines[index][letter];
 
                 letter++;
 
@@ -144,7 +137,9 @@ function typeStory(lines, element, callback){
                 setTimeout(type,35);
 
 
-            }else{
+            }
+
+            else{
 
 
                 index++;
@@ -164,7 +159,6 @@ function typeStory(lines, element, callback){
     }
 
 
-
     nextLine();
 
 
@@ -174,39 +168,43 @@ function typeStory(lines, element, callback){
 
 
 
+
+
+// CHAPTER ONE
+
 kittyTheme.addEventListener("click",()=>{
 
 
     showScreen(screens.kitty);
 
 
+
     typeStory(
 
-        kittyLines,
+    [
 
-        kittyMessage,
+    "Some people bring chaos...",
 
-        ()=>{
+    "...you somehow bring comfort too.",
 
+    "That's rare.",
 
-            kittyNext.style.display="inline-block";
-
-
-            kittyNext.style.opacity="0";
+    "So today we celebrate you. 💕"
 
 
-            setTimeout(()=>{
+    ],
+
+    kittyMessage,
 
 
-                kittyNext.style.transition=".8s";
-
-                kittyNext.style.opacity="1";
+    ()=>{
 
 
-            },100);
+        kittyNext.style.display="inline-block";
 
 
-        }
+    }
+
 
     );
 
@@ -218,7 +216,9 @@ kittyTheme.addEventListener("click",()=>{
 
 
 
-// XO KITTY → CHAPTER TWO
+
+
+// KITTY → KITKAT
 
 
 kittyNext.addEventListener("click",()=>{
@@ -230,13 +230,39 @@ kittyNext.addEventListener("click",()=>{
     transitionText.textContent="Loading Chapter Two...";
 
 
+
     setTimeout(()=>{
 
 
         showScreen(screens.kitkat);
 
 
-        startKitkat();
+
+        typeStory(
+
+        [
+
+        "Life can get overwhelming sometimes...",
+
+        "But even small moments matter.",
+
+        "Don't forget to pause.",
+
+        "You deserve sweet moments too. 🍫"
+
+
+        ],
+
+        kitkatMessage,
+
+        ()=>{
+
+            kitkatNext.style.display="inline-block";
+
+        }
+
+        );
+
 
 
     },2500);
@@ -249,35 +275,73 @@ kittyNext.addEventListener("click",()=>{
 
 
 
-// KITKAT STORY
-
-
-function startKitkat(){
-
-
-    const lines=[
-
-        "Life can get overwhelming sometimes...",
-
-        "But even the smallest moments matter.",
-
-        "Take breaks.",
-
-        "Smile more.",
-
-        "You deserve sweet moments too. 🍫"
-
-    ];
 
 
 
-    typeStory(
-
-        lines,
-
-        kitkatMessage
-
-    );
+// KITKAT → PUPPY
 
 
-}
+kitkatNext.addEventListener("click",()=>{
+
+
+    showScreen(screens.transition);
+
+
+    transitionText.textContent="Loading Chapter Three...";
+
+
+
+    setTimeout(()=>{
+
+
+        showScreen(screens.puppy);
+
+
+
+        typeStory(
+
+        [
+
+        "Some happiness is simple.",
+
+        "A warm heart.",
+
+        "A loyal friend.",
+
+        "A reason to smile. 🐶"
+
+
+        ],
+
+        puppyMessage,
+
+        ()=>{
+
+            puppyNext.style.display="inline-block";
+
+        }
+
+        );
+
+
+
+    },2500);
+
+
+
+});
+
+
+
+
+
+
+
+// PUPPY BUTTON
+
+puppyNext.addEventListener("click",()=>{
+
+
+    alert("🎬 Final Chapter coming next!");
+
+});
