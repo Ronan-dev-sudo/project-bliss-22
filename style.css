@@ -11,149 +11,230 @@ body{
     overflow:hidden;
 }
 
+
 .screen{
+
     width:100vw;
     height:100vh;
+
     display:none;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
     position:absolute;
+
     inset:0;
+
     padding:30px;
+
 }
+
 
 .screen.active{
+
     display:flex;
+
     animation:fade .8s ease;
+
 }
 
-/* ---------------- NETFLIX ---------------- */
+
+
+/* =========================
+NETFLIX INTRO
+========================= */
+
 
 #netflixIntro{
+
     background:#000;
+
 }
+
 
 .netflix-logo{
+
     font-size:11rem;
+
     color:#E50914;
+
     font-weight:900;
+
     animation:pulse 2s infinite;
+
 }
+
 
 .loading-text{
+
     margin-top:20px;
-    color:#bfbfbf;
-    letter-spacing:2px;
+
+    color:#bbb;
+
+    letter-spacing:3px;
+
 }
 
-/* ---------------- WELCOME ---------------- */
+
+
+
+/* =========================
+WELCOME
+========================= */
+
 
 #welcomeScreen{
-    background:radial-gradient(circle,#242424,#000 70%);
+
+    background:
+    radial-gradient(circle,#2b2b2b,#000);
+
 }
+
 
 .welcome-box{
+
     max-width:600px;
+
 }
+
 
 .welcome-box h1{
+
     font-size:3.5rem;
+
     margin-bottom:20px;
+
 }
+
 
 .welcome-box p{
-    color:#d7d7d7;
-    font-size:1.15rem;
-    line-height:1.8;
+
+    color:#ddd;
+
     margin-bottom:40px;
+
+    font-size:1.2rem;
+
 }
 
-/* ---------------- BUTTON ---------------- */
+
+
+
+/* =========================
+BUTTONS
+========================= */
+
 
 button{
+
     background:#E50914;
+
     border:none;
+
     color:white;
-    padding:16px 42px;
-    border-radius:10px;
+
+    padding:16px 45px;
+
+    border-radius:12px;
+
     cursor:pointer;
+
     font-size:1rem;
+
     transition:.3s;
+
 }
+
 
 button:hover{
-    transform:scale(1.05);
+
+    transform:scale(1.06);
+
 }
 
-/* ---------------- CHAPTERS ---------------- */
+
+
+
+/* =========================
+CHAPTER SELECTION
+========================= */
+
 
 #themeScreen{
-    background:linear-gradient(145deg,#050505,#141414,#050505);
+
+    background:
+    linear-gradient(145deg,#050505,#151515);
+
 }
+
 
 .theme-container{
+
     width:min(1100px,100%);
+
 }
+
 
 .theme-container h1{
+
     font-size:3rem;
+
     margin-bottom:15px;
+
 }
 
-.theme-container>p{
-    color:#bfbfbf;
-    margin-bottom:50px;
+
+.theme-container p{
+
+    color:#ccc;
+
+    margin-bottom:45px;
+
 }
+
 
 .theme-grid{
+
     display:grid;
+
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
     gap:25px;
+
 }
+
 
 .theme-card{
 
-    background:#171717;
-
-    border-radius:20px;
+    background:#181818;
 
     padding:35px;
 
-    cursor:pointer;
+    border-radius:20px;
 
-    transition:.35s;
+    transition:.3s;
 
 }
+
 
 .theme-card:hover{
 
     transform:translateY(-8px);
 
-    box-shadow:0 20px 45px rgba(229,9,20,.25);
-
-    border:2px solid #E50914;
-
 }
 
-.theme-card.disabled{
+
+.disabled{
 
     opacity:.45;
 
-    cursor:not-allowed;
-
 }
 
-.theme-card.disabled:hover{
-
-    transform:none;
-
-    border:none;
-
-    box-shadow:none;
-
-}
 
 .emoji{
 
@@ -163,57 +244,24 @@ button:hover{
 
 }
 
-.theme-card h2{
 
-    margin-bottom:10px;
 
-}
 
-.theme-card span{
 
-    color:#c8c8c8;
+/* =========================
+XO KITTY
+========================= */
 
-}
-
-/* ---------------- XO KITTY ---------------- */
 
 #xoKittyScreen{
 
-    overflow:hidden;
-
     background:
-    linear-gradient(135deg,#ffd4ea,#ffc0df,#ff9dcb);
+    linear-gradient(135deg,#ffd4ea,#ff9dcc);
 
-    color:#5b2340;
-
-}
-
-.kitty-background{
-
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
+    color:#61223f;
 
 }
 
-.floating-heart{
-
-    position:absolute;
-
-    font-size:2rem;
-
-    opacity:.25;
-
-    animation:floatUp 12s linear infinite;
-
-}
-
-.h1{left:10%;bottom:-10%;}
-.h2{left:35%;bottom:-20%;animation-delay:2s;}
-.h3{left:65%;bottom:-15%;animation-delay:4s;}
-.h4{left:85%;bottom:-10%;animation-delay:6s;}
 
 .kitty-content{
 
@@ -225,15 +273,15 @@ button:hover{
 
 }
 
+
 .kitty{
 
     font-size:6rem;
 
     animation:bounce 1.4s infinite;
 
-    margin-bottom:20px;
-
 }
+
 
 #xoKittyScreen h1{
 
@@ -241,118 +289,251 @@ button:hover{
 
     letter-spacing:4px;
 
-    text-transform:uppercase;
-
 }
+
 
 #xoKittyScreen h2{
 
     font-size:3rem;
 
-    margin:10px 0 25px;
+    margin:10px;
 
 }
+
 
 #kittyMessage{
 
+    min-height:120px;
+
     font-size:1.2rem;
 
-    line-height:1.9;
-
-    min-height:90px;
-
-    margin-bottom:40px;
+    line-height:1.8;
 
 }
 
-/* ---------------- ANIMATIONS ---------------- */
 
-@keyframes pulse{
 
-0%,100%{
-transform:scale(.9);
-opacity:.5;
-}
+/* =========================
+TRANSITION
+========================= */
 
-50%{
-transform:scale(1);
-opacity:1;
-}
+
+#chapterTransition{
+
+    background:#000;
 
 }
+
+
+.transition-box h2{
+
+    margin-top:25px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+.loader-circle{
+
+    width:70px;
+
+    height:70px;
+
+    border:5px solid #333;
+
+    border-top:5px solid white;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+
+
+
+
+/* =========================
+KITKAT
+========================= */
+
+
+#kitkatScreen{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #3b1608,
+
+    #7b3418,
+
+    #d2691e
+
+    );
+
+}
+
+
+.kitkat-content{
+
+    max-width:650px;
+
+}
+
+
+.kitkat-icon{
+
+    font-size:6rem;
+
+    animation:bounce 1.5s infinite;
+
+}
+
+
+#kitkatScreen h1{
+
+    letter-spacing:4px;
+
+    font-size:1rem;
+
+}
+
+
+#kitkatScreen h2{
+
+    font-size:3rem;
+
+    margin:20px;
+
+}
+
+
+#kitkatMessage{
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    min-height:100px;
+
+}
+
+
+
+
+
+/* =========================
+ANIMATIONS
+========================= */
+
 
 @keyframes fade{
 
 from{
+
 opacity:0;
+
 transform:scale(.98);
+
 }
 
 to{
+
 opacity:1;
+
 transform:scale(1);
+
 }
 
 }
+
+
+
+@keyframes pulse{
+
+0%,100%{
+
+transform:scale(.9);
+
+opacity:.5;
+
+}
+
+50%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+
 
 @keyframes bounce{
 
 0%,100%{
+
 transform:translateY(0);
+
 }
 
 50%{
+
 transform:translateY(-12px);
-}
-
-}
-
-@keyframes floatUp{
-
-from{
-
-transform:translateY(0);
-
-opacity:0;
-
-}
-
-20%{
-
-opacity:.3;
-
-}
-
-100%{
-
-transform:translateY(-120vh);
-
-opacity:0;
 
 }
 
 }
+
+
+
+@keyframes spin{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
 
 @media(max-width:700px){
 
-.netflix-logo{
-font-size:8rem;
+.welcome-box h1{
+
+font-size:2.5rem;
+
 }
 
-.welcome-box h1{
-font-size:2.5rem;
-}
 
 .theme-container h1{
+
 font-size:2.2rem;
+
 }
 
-#xoKittyScreen h2{
-font-size:2.3rem;
-}
 
-.kitty{
+.kitty,.kitkat-icon{
+
 font-size:5rem;
+
+}
+
+
+#xoKittyScreen h2,
+#kitkatScreen h2{
+
+font-size:2.2rem;
+
 }
 
 }
