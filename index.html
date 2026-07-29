@@ -1,266 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bliss v2</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Project Bliss 💗</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
+    <!-- Netflix Intro -->
+    <section id="netflixIntro" class="screen active">
 
-<div class="intro">
+        <div class="netflix-logo">
+            N
+        </div>
 
-<h1>A PROJECT BLISS ORIGINAL 🎬</h1>
+        <p class="loading-text">
+            Loading your surprise...
+        </p>
 
-<p>
-A story of memories, laughter and beautiful moments ✨
-</p>
+    </section>
 
-<button onclick="startExperience()">
-Start Episode ▶
-</button>
+    <!-- Welcome -->
+    <section id="welcomeScreen" class="screen">
 
-</div>
+        <div class="welcome-box">
 
+            <h1>Hi Bliss ❤️</h1>
 
+            <p>
+                I made something special for you.
+            </p>
 
+            <button id="startJourney">
+                Begin
+            </button>
 
-<main id="mainContent" class="hidden">
+        </div>
 
+    </section>
 
-<section class="hero">
-
-<h1>
-Welcome to Project Bliss 💗
-</h1>
-
-<p>
-A little world made with love, memories and happiness ✨
-</p>
-
-<button onclick="showMessage()">
-Open Surprise 🎁
-</button>
-
-<p id="message"></p>
-
-</section>
-
-
-
-
-
-<section class="themes">
-
-<h2>
-Choose Your Vibe 🎀
-</h2>
-
-
-<div class="cards">
-
-
-<div class="card" onclick="xoKitty()">
-🎀<br>
-<strong>XO Kitty</strong><br>
-K-Drama Core
-</div>
-
-
-
-<div class="card" onclick="kitkat()">
-🍫<br>
-<strong>KitKat</strong><br>
-Sweet Moments
-</div>
-
-
-
-<div class="card" onclick="puppy()">
-🐶<br>
-<strong>Puppy Theme</strong><br>
-Cute Energy
-</div>
-
-
-
-<div class="card" onclick="netflix()">
-🎬<br>
-<strong>Netflix</strong><br>
-Birthday Series
-</div>
-
-
-</div>
-
-</section>
-
-
-</main>
-
-
-
-
-
-<section id="xoKittyPage" class="hidden page">
-
-
-<h1>
-🎀 XO Kitty World 💗
-</h1>
-
-
-<p>
-Welcome to your own little K-Drama episode ✨
-</p>
-
-
-<h2>
-🌸 Episode One: Memories
-</h2>
-
-
-
-<div class="gallery">
-
-
-<div class="photo">
-
-<div class="photo-placeholder">
-📸
-</div>
-
-<p>
-Our first memory ✨
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<div class="photo-placeholder">
-📸
-</div>
-
-<p>
-Beautiful moments 🌸
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<div class="photo-placeholder">
-📸
-</div>
-
-<p>
-Little memories 💗
-</p>
-
-</div>
-
-
-
-
-<div class="photo">
-
-<div class="photo-placeholder">
-📸
-</div>
-
-<p>
-More chapters 🎬
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<button onclick="showLetter()">
-💌 Read My Letter
-</button>
-
-
-<p id="letter"></p>
-
-
-</section>
-
-
-
-
-
-<section id="kitkatPage" class="hidden page">
-
-<h1>
-🍫 KitKat Moments
-</h1>
-
-<p>
-Sweet memories deserve sweet moments.
-</p>
-
-</section>
-
-
-
-
-
-<section id="puppyPage" class="hidden page">
-
-<h1>
-🐶 Puppy Paradise
-</h1>
-
-<p>
-Cute energy only 🐾
-</p>
-
-</section>
-
-
-
-
-
-<section id="netflixPage" class="hidden page">
-
-<h1>
-🎬 Birthday Series
-</h1>
-
-<p>
-Episode One has begun...
-</p>
-
-</section>
-
-
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
-
 </html>
