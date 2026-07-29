@@ -10,62 +10,121 @@ const kittyTheme = document.getElementById("kittyTheme");
 const kittyNext = document.getElementById("kittyNext");
 const kittyMessage = document.getElementById("kittyMessage");
 
+kittyNext.style.display = "none";
+
 const kittyLines = [
     "Some people bring chaos...",
+    "",
     "...you somehow bring comfort too.",
+    "",
     "That's rare.",
-    "And today is all about celebrating you. 💕"
+    "",
+    "So let's celebrate the girl who keeps showing up.",
+    "",
+    "Happy Birthday, Bliss. 💕"
 ];
 
 function showScreen(screen) {
-    Object.values(screens).forEach(s => s.classList.remove("active"));
+
+    Object.values(screens).forEach(s => {
+        s.classList.remove("active");
+    });
+
     screen.classList.add("active");
+
 }
 
-function typeLines(lines, element, speed = 40, pause = 900) {
-    element.textContent = "";
-    let lineIndex = 0;
+setTimeout(() => {
 
-    function typeCurrentLine() {
-        if (lineIndex >= lines.length) return;
+    showScreen(screens.welcome);
 
-        let charIndex = 0;
+},3500);
 
-        function typeChar() {
-            if (charIndex < lines[lineIndex].length) {
-                element.textContent += lines[lineIndex][charIndex];
-                charIndex++;
-                setTimeout(typeChar, speed);
-            } else {
-                element.textContent += "\n\n";
-                lineIndex++;
-                setTimeout(typeCurrentLine, pause);
+startJourney.addEventListener("click",()=>{
+
+    showScreen(screens.themes);
+
+});
+
+kittyTheme.addEventListener("click",()=>{
+
+    showScreen(screens.kitty);
+
+    startTyping();
+
+});
+
+function startTyping(){
+
+    kittyNext.style.display="none";
+
+    kittyMessage.innerHTML="";
+
+    let line=0;
+
+    function typeLine(){
+
+        if(line>=kittyLines.length){
+
+            kittyNext.style.display="inline-block";
+
+            kittyNext.style.opacity="0";
+
+            setTimeout(()=>{
+
+                kittyNext.style.transition=".8s";
+                kittyNext.style.opacity="1";
+
+            },200);
+
+            return;
+
+        }
+
+        let text=kittyLines[line];
+
+        let i=0;
+
+        let paragraph=document.createElement("p");
+
+        paragraph.style.marginBottom="12px";
+
+        kittyMessage.appendChild(paragraph);
+
+        function typeChar(){
+
+            if(i<text.length){
+
+                paragraph.textContent+=text.charAt(i);
+
+                i++;
+
+                setTimeout(typeChar,35);
+
+            }else{
+
+                line++;
+
+                setTimeout(typeLine,500);
+
             }
+
         }
 
         typeChar();
+
     }
 
-    typeCurrentLine();
+    typeLine();
+
 }
 
-// Intro → Welcome
-setTimeout(() => {
-    showScreen(screens.welcome);
-}, 3500);
+kittyNext.addEventListener("click",()=>{
 
-// Welcome → Chapters
-startJourney.addEventListener("click", () => {
-    showScreen(screens.themes);
-});
+    kittyMessage.innerHTML="";
 
-// Chapter 1
-kittyTheme.addEventListener("click", () => {
-    showScreen(screens.kitty);
-    typeLines(kittyLines, kittyMessage);
-});
+    kittyNext.style.display="none";
 
-// Temporary next button
-kittyNext.addEventListener("click", () => {
-    alert("🍫 Chapter Two (KitKat) is next!");
+    alert("🍫 Chapter Two is the next brick we'll build.");
+
 });
