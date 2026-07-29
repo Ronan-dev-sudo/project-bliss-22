@@ -1,289 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Bliss ❤️</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Project Bliss v2 ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<section id="netflixIntro" class="screen active">
+    <!-- Music Toggle -->
+    <button id="musicBtn" class="music-btn">
+        🔇
+    </button>
 
-<div class="netflix-logo">
-N
-</div>
+    <!-- ================= NETFLIX INTRO ================= -->
 
-<p class="loading-text">
-Loading your surprise...
-</p>
+    <section class="screen active" id="netflixScreen">
 
-</section>
+        <h1 class="netflix-logo">PROJECT BLISS</h1>
 
+    </section>
 
+    <!-- ================= WELCOME ================= -->
 
+    <section class="screen" id="welcomeScreen">
 
-<section id="welcomeScreen" class="screen">
+        <div class="welcome-box">
 
-<div class="welcome-box">
+            <h1>Happy Birthday Bliss ❤️</h1>
 
-<h1>
-Hi Bliss ❤️
-</h1>
+            <p>
+                This isn't just a website.
 
-<p>
-Every birthday deserves a story...
-</p>
+                It's a small journey...
+                made with love,
+                memories,
+                laughter,
+                and hope.
+            </p>
 
-<button id="startJourney">
-Begin
-</button>
+            <button id="startBtn" class="main-btn">
+                Begin
+            </button>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
+    <!-- ================= THEME SELECT ================= -->
 
+    <section class="screen" id="themeScreen">
 
+        <h2>Choose a memory ✨</h2>
 
+        <div class="theme-grid">
 
-<section id="themeScreen" class="screen">
+            <button class="theme-card" data-target="xoScreen">
+                🌸
+                <span>XO Kitty</span>
+            </button>
 
-<div class="theme-container">
+            <button class="theme-card" data-target="kitkatScreen">
+                🍫
+                <span>KitKat</span>
+            </button>
 
-<h1>
-Choose where the story begins.
-</h1>
+            <button class="theme-card" data-target="puppyScreen">
+                🐶
+                <span>Puppies</span>
+            </button>
 
-<p>
-Every chapter was made with you in mind.
-</p>
+        </div>
 
-<div class="theme-grid">
+    </section>
 
-<div class="theme-card" id="kittyTheme">
+    <!-- ================= XO KITTY ================= -->
 
-<div class="emoji">💕</div>
+    <section class="screen theme-screen" id="xoScreen">
 
-<h2>Chapter One</h2>
+        <div class="theme-content">
 
-<span>XO Kitty</span>
+            <h2>XO Kitty 🌸</h2>
 
-</div>
+            <div class="image-placeholder">
+                <p>Place XO Kitty photo here</p>
+            </div>
 
-<div class="theme-card disabled">
+            <p class="theme-text">
+                Every time I hear about XO Kitty,
+                I immediately think of you.
+                Your excitement has always been contagious,
+                and somehow you've made that world feel a little
+                more special just by loving it.
+            </p>
 
-<div class="emoji">🍫</div>
+            <button class="next-btn" data-next="kitkatScreen">
+                Next →
+            </button>
 
-<h2>Chapter Two</h2>
+        </div>
 
-<span>KitKat</span>
+    </section>
 
-</div>
+    <!-- ================= KITKAT ================= -->
 
-<div class="theme-card disabled">
+    <section class="screen theme-screen" id="kitkatScreen">
 
-<div class="emoji">🐶</div>
+        <div class="theme-content">
 
-<h2>Chapter Three</h2>
+            <h2>KitKat 🍫</h2>
 
-<span>Puppy</span>
+            <div class="image-placeholder">
+                <p>Place KitKat photo here</p>
+            </div>
 
-</div>
+            <p class="theme-text">
+                Some people smile because life is easy.
 
-<div class="theme-card disabled">
+                You smile even after difficult days.
 
-<div class="emoji">🎬</div>
+                I hope life gives you every reason
+                to keep smiling,
+                one chocolate at a time.
+            </p>
 
-<h2>Final Chapter</h2>
+            <button class="next-btn" data-next="puppyScreen">
+                Next →
+            </button>
 
-<span>Netflix</span>
+        </div>
 
-</div>
+    </section>
 
-</div>
+    <!-- ================= PUPPIES ================= -->
 
-</div>
+    <section class="screen theme-screen" id="puppyScreen">
 
-</section>
+        <div class="theme-content">
 
+            <h2>Puppies 🐶</h2>
 
+            <div class="image-placeholder">
+                <p>Place Puppy photo here</p>
+            </div>
 
+            <p class="theme-text">
+                I still believe one day
+                you'll have the beautiful home
+                you've always imagined...
 
+                Filled with warmth,
 
-<section id="xoKittyScreen" class="screen">
+                tiny paws,
 
-<div class="kitty-content">
+                laughter,
 
-<div class="kitty">
-🐱
-</div>
+                and lots of love.
+            </p>
 
-<h1>Chapter One</h1>
+            <button class="next-btn" data-next="finalScreen">
+                Continue →
+            </button>
 
-<h2>XO Kitty</h2>
+        </div>
 
-<div id="kittyMessage"></div>
+    </section>
 
-<button id="kittyNext">
-Continue →
-</button>
+    <!-- ================= FINAL ================= -->
 
-</div>
+    <section class="screen" id="finalScreen">
 
-</section>
+        <div class="final-content">
 
+            <h1>One Last Thing...</h1>
 
+            <p>
+                Before today ends,
+                there's something I want you to read.
+            </p>
 
+            <button id="envelopeBtn" class="main-btn">
+                Open Letter ❤️
+            </button>
 
+        </div>
 
+    </section>
 
-<section id="chapterTransition" class="screen">
+    <!-- ================= ENVELOPE ================= -->
 
-<div class="transition-box">
+    <section class="screen" id="envelopeScreen">
 
-<div class="loader-circle"></div>
+        <div id="envelope" class="envelope">
 
-<h2 id="transitionText">
-Loading Chapter...
-</h2>
+            <div class="envelope-top"></div>
 
-</div>
+            <div class="envelope-body"></div>
 
-</section>
+            <div class="letter-peek"></div>
 
+        </div>
 
+        <p class="tap-text">
+            Tap the envelope
+        </p>
 
+    </section>
 
+    <!-- ================= LETTER ================= -->
 
+    <section class="screen" id="letterScreen">
 
-<section id="kitkatScreen" class="screen">
+        <div class="letter-card">
 
-<div class="kitkat-content">
+            <h2>For Bliss ❤️</h2>
 
-<div class="kitkat-icon">
-🍫
-</div>
+            <div id="typewriter" class="typewriter"></div>
 
-<h1>Chapter Two</h1>
+            <button id="endingBtn" class="main-btn">
+                Finish
+            </button>
 
-<h2>Little Moments</h2>
+        </div>
 
-<div id="kitkatMessage"></div>
+    </section>
 
-<button id="kitkatNext">
-Continue →
-</button>
+    <!-- ================= ENDING ================= -->
 
-</div>
+    <section class="screen" id="endingScreen">
 
-</section>
+        <div id="stars"></div>
 
+        <div class="ending-content">
 
+            <h1>Happy Birthday Bliss ✨</h1>
 
+            <p>
+                May this year surprise you
+                in the most beautiful ways.
+            </p>
 
+            <button id="replayBtn" class="main-btn">
+                Replay
+            </button>
 
+        </div>
 
-<section id="puppyScreen" class="screen">
+    </section>
 
-<div class="puppy-content">
-
-<div class="puppy">
-🐶
-</div>
-
-<h1>Chapter Three</h1>
-
-<h2>Pure Happiness</h2>
-
-<div id="puppyMessage"></div>
-
-<button id="puppyNext">
-Continue →
-</button>
-
-</div>
-
-</section>
-
-
-
-
-
-
-<section id="finalScreen" class="screen">
-
-<div class="final-content">
-
-<p class="movie-label">
-NETFLIX ORIGINAL PRESENTS
-</p>
-
-<h1>
-PROJECT BLISS
-</h1>
-
-<p class="movie-subtitle">
-A story about someone truly special.
-</p>
-
-<div class="stars">
-★★★★★
-</div>
-
-<button id="letterButton">
-Open Letter 💌
-</button>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- LETTER SCREEN -->
-
-<section id="letterScreen" class="screen">
-
-<div class="letter-paper">
-
-<h2>
-To Bliss ❤️
-</h2>
-
-<div id="letterContent"></div>
-
-<p class="signature">
-Love,<br>
-Jeff ❤️
-</p>
-
-<button id="finishStory">
-Continue ✨
-</button>
-
-</div>
-
-</section>
-
-
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
