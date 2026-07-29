@@ -11,7 +11,6 @@ const screens = {
 };
 
 
-
 const startJourney = document.getElementById("startJourney");
 
 const kittyTheme = document.getElementById("kittyTheme");
@@ -23,21 +22,17 @@ const kitkatNext = document.getElementById("kitkatNext");
 const puppyNext = document.getElementById("puppyNext");
 
 
-
 const kittyMessage = document.getElementById("kittyMessage");
-
 const kitkatMessage = document.getElementById("kitkatMessage");
-
 const puppyMessage = document.getElementById("puppyMessage");
 
 const transitionText = document.getElementById("transitionText");
 
 
 
-
 kittyNext.style.display = "none";
-
-
+kitkatNext.style.display = "none";
+puppyNext.style.display = "none";
 
 
 
@@ -49,16 +44,12 @@ function showScreen(screen){
 
     });
 
-
     screen.classList.add("active");
 
 }
 
 
 
-
-
-// Intro
 
 setTimeout(()=>{
 
@@ -70,8 +61,6 @@ setTimeout(()=>{
 
 
 
-// Welcome
-
 startJourney.addEventListener("click",()=>{
 
     showScreen(screens.themes);
@@ -82,13 +71,10 @@ startJourney.addEventListener("click",()=>{
 
 
 
-
-
 function typeStory(lines,element,callback){
 
 
     element.innerHTML="";
-
 
     let index=0;
 
@@ -98,13 +84,9 @@ function typeStory(lines,element,callback){
 
         if(index >= lines.length){
 
-
             if(callback){
-
                 callback();
-
             }
-
 
             return;
 
@@ -114,13 +96,10 @@ function typeStory(lines,element,callback){
 
         let p=document.createElement("p");
 
-
         element.appendChild(p);
 
 
-
         let letter=0;
-
 
 
         function type(){
@@ -128,39 +107,31 @@ function typeStory(lines,element,callback){
 
             if(letter < lines[index].length){
 
-
                 p.textContent += lines[index][letter];
 
                 letter++;
 
-
                 setTimeout(type,35);
-
 
             }
 
             else{
 
-
                 index++;
 
                 setTimeout(nextLine,700);
 
-
             }
-
 
         }
 
 
         type();
 
-
     }
 
 
     nextLine();
-
 
 }
 
@@ -170,13 +141,12 @@ function typeStory(lines,element,callback){
 
 
 
-// CHAPTER ONE
+// XO KITTY
 
 kittyTheme.addEventListener("click",()=>{
 
 
     showScreen(screens.kitty);
-
 
 
     typeStory(
@@ -191,7 +161,6 @@ kittyTheme.addEventListener("click",()=>{
 
     "So today we celebrate you. 💕"
 
-
     ],
 
     kittyMessage,
@@ -199,9 +168,7 @@ kittyTheme.addEventListener("click",()=>{
 
     ()=>{
 
-
         kittyNext.style.display="inline-block";
-
 
     }
 
@@ -217,9 +184,7 @@ kittyTheme.addEventListener("click",()=>{
 
 
 
-
-// KITTY → KITKAT
-
+// KITTY TO KITKAT
 
 kittyNext.addEventListener("click",()=>{
 
@@ -230,12 +195,10 @@ kittyNext.addEventListener("click",()=>{
     transitionText.textContent="Loading Chapter Two...";
 
 
-
     setTimeout(()=>{
 
 
         showScreen(screens.kitkat);
-
 
 
         typeStory(
@@ -250,10 +213,10 @@ kittyNext.addEventListener("click",()=>{
 
         "You deserve sweet moments too. 🍫"
 
-
         ],
 
         kitkatMessage,
+
 
         ()=>{
 
@@ -261,8 +224,8 @@ kittyNext.addEventListener("click",()=>{
 
         }
 
-        );
 
+        );
 
 
     },2500);
@@ -277,9 +240,7 @@ kittyNext.addEventListener("click",()=>{
 
 
 
-
-// KITKAT → PUPPY
-
+// KITKAT TO PUPPY
 
 kitkatNext.addEventListener("click",()=>{
 
@@ -288,7 +249,6 @@ kitkatNext.addEventListener("click",()=>{
 
 
     transitionText.textContent="Loading Chapter Three...";
-
 
 
     setTimeout(()=>{
@@ -310,10 +270,10 @@ kitkatNext.addEventListener("click",()=>{
 
         "A reason to smile. 🐶"
 
-
         ],
 
         puppyMessage,
+
 
         ()=>{
 
@@ -321,8 +281,8 @@ kitkatNext.addEventListener("click",()=>{
 
         }
 
-        );
 
+        );
 
 
     },2500);
@@ -337,11 +297,15 @@ kitkatNext.addEventListener("click",()=>{
 
 
 
-// PUPPY BUTTON
+// PUPPY TO FINAL
 
 puppyNext.addEventListener("click",()=>{
 
 
-    alert("🎬 Final Chapter coming next!");
+    showScreen(screens.transition);
+
+
+    transitionText.textContent="Preparing the final chapter...";
+
 
 });
