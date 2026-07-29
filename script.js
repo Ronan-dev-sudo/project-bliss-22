@@ -1,137 +1,76 @@
-
-// ============================
+// =============================
 // PROJECT BLISS V2
-// MAIN CONTROLLER
-// ============================
+// FLOW CONTROLLER
+// =============================
 
 
-const screens = {
-
-    netflix: document.getElementById("netflixScreen"),
-
-    welcome: document.getElementById("welcomeScreen"),
-
-    theme: document.getElementById("themeScreen"),
-
-    xo: document.getElementById("xoScreen"),
-
-    kitkat: document.getElementById("kitkatScreen"),
-
-    puppy: document.getElementById("puppyScreen"),
-
-    final: document.getElementById("finalScreen"),
-
-    envelope: document.getElementById("envelopeScreen"),
-
-    letter: document.getElementById("letterScreen"),
-
-    ending: document.getElementById("endingScreen")
-
-};
+const screens = document.querySelectorAll(".screen");
 
 
+function showScreen(id){
 
-const startBtn = document.getElementById("startBtn");
+    screens.forEach(screen=>{
 
-const envelopeBtn = document.getElementById("envelopeBtn");
-
-const finishBtn = document.getElementById("finishBtn");
-
-const replayBtn = document.getElementById("replayBtn");
-
-const musicBtn = document.getElementById("musicBtn");
-
-const music = document.getElementById("bgMusic");
-
-const envelope = document.getElementById("envelope");
-
-const typewriter = document.getElementById("typewriter");
-
-
-
-function showScreen(screen){
-
-    Object.values(screens).forEach(section=>{
-
-        section.classList.remove("active");
+        screen.classList.remove("active");
 
     });
 
 
-    screen.classList.add("active");
+    const target = document.getElementById(id);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
 
 }
 
 
 
 
-// Netflix intro timing
-
-setTimeout(()=>{
-
-    showScreen(screens.welcome);
-
-},3500);
+// =============================
+// START JOURNEY
+// =============================
 
 
+const startBtn = document.getElementById("startBtn");
 
 
+if(startBtn){
 
-// Start journey
+    startBtn.addEventListener("click",()=>{
 
-startBtn.addEventListener("click",()=>{
-
-
-    showScreen(screens.theme);
-
-
-    if(music){
-
-        music.play().catch(()=>{});
-
-    }
-
-
-    if(musicBtn){
-
-        musicBtn.textContent="🔊";
-
-    }
-
-
-});
-// ============================
-// CHAPTER NAVIGATION
-// ============================
-
-
-const chapters = document.querySelectorAll(".chapter");
-
-
-chapters.forEach(chapter=>{
-
-
-    chapter.addEventListener("click",()=>{
-
-
-        const target = chapter.dataset.target;
-
-
-        showScreen(
-            document.getElementById(target)
-        );
-
+        showScreen("xoScreen");
 
     });
 
-
-});
-
+}
 
 
 
 
-// Next buttons inside chapters
+// =============================
+// AUTO NETFLIX INTRO
+// =============================
+
+
+setTimeout(()=>{
+
+
+    showScreen("welcomeScreen");
+
+
+},4000);
+
+
+
+
+
+// =============================
+// CHAPTER FLOW
+// =============================
 
 
 const nextButtons = document.querySelectorAll(".nextBtn");
@@ -143,60 +82,58 @@ nextButtons.forEach(button=>{
     button.addEventListener("click",()=>{
 
 
-        const next = button.dataset.next;
+        const nextScreen = button.dataset.next;
 
 
-        showScreen(
-            document.getElementById(next)
-        );
+        if(nextScreen){
+
+
+            showScreen(nextScreen);
+
+
+        }
 
 
     });
 
 
 });
+// =============================
+// ENVELOPE FLOW
+// =============================
+
+
+const envelope = document.getElementById("envelope");
+
+
+if(envelope){
+
+    envelope.addEventListener("click",()=>{
+
+
+        showScreen("letterScreen");
+
+
+        startTyping();
+
+
+    });
+
+}
 
 
 
 
 
-// ============================
-// ENVELOPE
-// ============================
+// =============================
+// LETTER TYPEWRITER
+// =============================
 
 
-envelopeBtn.addEventListener("click",()=>{
+const typewriter = document.getElementById("typewriter");
 
 
-    showScreen(screens.envelope);
-
-
-});
-
-
-
-
-envelope.addEventListener("click",()=>{
-
-
-    showScreen(screens.letter);
-
-
-    startTyping();
-
-
-});
-
-
-
-
-
-// ============================
-// LETTER
-// ============================
-
-
-const letter = `Hey Bliss,
+const letterText = `Hey Bliss,
 
 I don't know if I've always been the perfect friend, but I hope today reminds you just how special you are.
 
@@ -233,131 +170,115 @@ Jeff ❤️`;
 
 
 
-let index = 0;
+let letterIndex = 0;
+
 
 
 function startTyping(){
 
 
-    typewriter.innerHTML="";
+    if(!typewriter){
+
+        return;
+
+    }
 
 
-    index=0;
+    typewriter.innerHTML = "";
 
 
-    type();
+    letterIndex = 0;
+
+
+    writeLetter();
 
 
 }
 
 
 
-function type(){
+function writeLetter(){
 
 
-    if(index < letter.length){
+    if(letterIndex < letterText.length){
 
 
-        typewriter.innerHTML += letter.charAt(index);
+        typewriter.innerHTML += letterText.charAt(letterIndex);
 
 
-        index++;
+        letterIndex++;
 
 
-        setTimeout(type,35);
+        setTimeout(writeLetter,35);
 
 
     }
 
 
 }
-// ============================
+// =============================
 // LETTER FINISH
-// ============================
+// =============================
 
 
-finishBtn.addEventListener("click",()=>{
+const finishBtn = document.getElementById("finishBtn");
 
 
-    showScreen(screens.ending);
+if(finishBtn){
+
+    finishBtn.addEventListener("click",()=>{
 
 
-});
+        showScreen("endingScreen");
+
+
+    });
+
+}
 
 
 
 
 
-// ============================
+// =============================
 // REPLAY
-// ============================
+// =============================
 
 
-replayBtn.addEventListener("click",()=>{
+const replayBtn = document.getElementById("replayBtn");
 
 
-    typewriter.innerHTML="";
+if(replayBtn){
+
+    replayBtn.addEventListener("click",()=>{
 
 
-    index=0;
+        showScreen("welcomeScreen");
 
 
-    showScreen(screens.theme);
+    });
 
-
-});
-
-
+}
 
 
 
-// ============================
+
+
+// =============================
 // MUSIC TOGGLE
-// ============================
+// =============================
 
 
-musicBtn.addEventListener("click",()=>{
+const musicBtn = document.getElementById("musicBtn");
 
-
-    if(music.paused){
-
-
-        music.play().catch(()=>{});
-
-
-        musicBtn.textContent="🔊";
-
-
-    }else{
-
-
-        music.pause();
-
-
-        musicBtn.textContent="🔇";
-
-
-    }
-
-
-});
+const music = document.getElementById("bgMusic");
 
 
 
+if(musicBtn && music){
 
 
-// ============================
-// KEYBOARD MUSIC CONTROL
-// ============================
-
-
-document.addEventListener("keydown",(event)=>{
-
-
-    if(event.code==="Space"){
-
-
-        event.preventDefault();
+    musicBtn.addEventListener("click",()=>{
 
 
         if(music.paused){
@@ -366,7 +287,7 @@ document.addEventListener("keydown",(event)=>{
             music.play().catch(()=>{});
 
 
-            musicBtn.textContent="🔊";
+            musicBtn.innerHTML="🔊";
 
 
         }else{
@@ -375,24 +296,28 @@ document.addEventListener("keydown",(event)=>{
             music.pause();
 
 
-            musicBtn.textContent="🔇";
+            musicBtn.innerHTML="🔇";
 
 
         }
 
 
-    }
+    });
 
 
-});
+}
 
 
 
 
 
-// ============================
-// INITIAL LOAD
-// ============================
+// =============================
+// START WITH SILENT MUSIC ICON
+// =============================
 
 
-showScreen(screens.netflix);
+if(music){
+
+    music.volume = 0.5;
+
+}
