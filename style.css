@@ -2,602 +2,161 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:"Poppins",sans-serif;
 }
 
 body{
     background:#000;
-    color:white;
+    color:#fff;
     overflow:hidden;
 }
 
-
 .screen{
-
+    position:absolute;
+    inset:0;
     width:100vw;
     height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+}
+
+.screen.active{
+    display:flex;
+    animation:fade .8s ease;
+}
+
+button{
+    margin-top:35px;
+    background:#E50914;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:15px 40px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+h1,h2,.movie-label{
+    font-family:"Cinzel",serif;
+}
+
+/* =========================
+LETTER SCREEN
+========================= */
+
+#letterScreen{
+
+    background:
+    radial-gradient(circle,#3a2d24,#16110d,#000);
+
+}
+
+.letter-paper{
+
+    width:min(760px,92vw);
+
+    background:#fffaf0;
+
+    color:#3b2c21;
+
+    padding:60px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.45);
+
+    transform:rotate(-1deg);
+
+    animation:paperFloat 5s ease-in-out infinite;
+
+}
+
+.letter-paper h2{
+
+    font-size:2.3rem;
+
+    margin-bottom:30px;
+
+    color:#8b3f4a;
+
+}
+
+#letterContent{
+
+    min-height:260px;
+
+    text-align:left;
+
+    line-height:2;
+
+    font-size:1.08rem;
+
+}
+
+.signature{
+
+    margin-top:35px;
+
+    text-align:right;
+
+    font-size:2rem;
+
+    color:#8b3f4a;
+
+    font-family:"Dancing Script",cursive;
 
     display:none;
 
-    justify-content:center;
-    align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    position:absolute;
-
-    inset:0;
-
-    padding:30px;
-
 }
 
-
-.screen.active{
-
-    display:flex;
-
-    animation:fade 1s ease;
-
-}
-
-
-
-/* NETFLIX INTRO */
-
-#netflixIntro{
-
-    background:#000;
-
-}
-
-
-.netflix-logo{
-
-    font-size:11rem;
-    font-weight:900;
-    color:#E50914;
-
-    animation:pulse 2s infinite;
-
-}
-
-
-.loading-text{
-
-    margin-top:20px;
-    letter-spacing:3px;
-    color:#aaa;
-
-}
-
-
-
-
-
-/* WELCOME */
-
-#welcomeScreen{
-
-background:
-radial-gradient(circle,#333,#000);
-
-}
-
-
-.welcome-box{
-
-max-width:600px;
-
-}
-
-
-.welcome-box h1{
-
-font-size:3.5rem;
-margin-bottom:20px;
-
-}
-
-
-.welcome-box p{
-
-font-size:1.2rem;
-color:#ddd;
-margin-bottom:40px;
-
-}
-
-
-
-
-
-/* BUTTONS */
-
-
-button{
-
-background:#E50914;
-color:white;
-
-border:none;
-
-padding:16px 45px;
-
-border-radius:12px;
-
-font-size:1rem;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-
-button:hover{
-
-transform:scale(1.08);
-
-}
-
-
-
-
-/* THEMES */
-
-
-#themeScreen{
-
-background:
-linear-gradient(145deg,#050505,#181818);
-
-}
-
-
-.theme-container{
-
-width:min(1100px,100%);
-
-}
-
-
-.theme-container h1{
-
-font-size:3rem;
-margin-bottom:15px;
-
-}
-
-
-.theme-container p{
-
-color:#ccc;
-margin-bottom:40px;
-
-}
-
-
-.theme-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-
-.theme-card{
-
-background:#181818;
-
-padding:35px;
-
-border-radius:20px;
-
-transition:.3s;
-
-}
-
-
-.theme-card:hover{
-
-transform:translateY(-8px);
-
-}
-
-
-.disabled{
-
-opacity:.45;
-
-}
-
-
-.emoji{
-
-font-size:4rem;
-margin-bottom:20px;
-
-}
-
-
-
-
-
-/* XO KITTY */
-
-
-#xoKittyScreen{
-
-background:
-linear-gradient(135deg,#ffd4ea,#ff9dcc);
-
-color:#61223f;
-
-}
-
-
-.kitty{
-
-font-size:6rem;
-
-animation:bounce 1.4s infinite;
-
-}
-
-
-.kitty-content{
-
-max-width:650px;
-
-}
-
-
-#xoKittyScreen h2{
-
-font-size:3rem;
-
-margin:15px;
-
-}
-
-
-#kittyMessage{
-
-min-height:120px;
-
-line-height:1.8;
-
-}
-
-
-
-
-
-/* TRANSITION */
-
-
-#chapterTransition{
-
-background:#000;
-
-}
-
-
-.loader-circle{
-
-width:70px;
-height:70px;
-
-border:5px solid #333;
-
-border-top:5px solid white;
-
-border-radius:50%;
-
-animation:spin 1s linear infinite;
-
-}
-
-
-
-
-
-
-/* KITKAT */
-
-
-#kitkatScreen{
-
-background:
-
-linear-gradient(135deg,#351306,#b35b24);
-
-}
-
-
-.kitkat-icon{
-
-font-size:6rem;
-
-animation:bounce 1.5s infinite;
-
-}
-
-
-.kitkat-content{
-
-max-width:650px;
-
-}
-
-
-#kitkatScreen h2{
-
-font-size:3rem;
-
-margin:20px;
-
-}
-
-
-#kitkatMessage{
-
-min-height:120px;
-
-line-height:1.8;
-
-}
-
-
-
-
-
-
-/* PUPPY */
-
-
-#puppyScreen{
-
-background:
-
-linear-gradient(180deg,#87ceeb,#e8f9ff);
-
-color:#263238;
-
-}
-
-
-.puppy{
-
-font-size:7rem;
-
-animation:puppyJump 1.2s infinite;
-
-}
-
-
-.puppy-content{
-
-max-width:650px;
-
-}
-
-
-#puppyScreen h2{
-
-font-size:3rem;
-
-margin:20px;
-
-}
-
-
-#puppyMessage{
-
-min-height:120px;
-
-line-height:1.8;
-
-}
-
-
-
-
-
-
-/* FINAL CHAPTER */
-
-
-#finalScreen{
-
-background:
-
-radial-gradient(circle at center,#333,#000 70%);
-
-}
-
-
-
-.final-content{
-
-max-width:800px;
-
-}
-
-
-.movie-label{
-
-font-size:.9rem;
-
-letter-spacing:6px;
-
-color:#aaa;
-
-margin-bottom:30px;
-
-}
-
-
-
-.final-content h1{
-
-font-size:5rem;
-
-letter-spacing:10px;
-
-font-weight:900;
-
-animation:titleGlow 3s infinite;
-
-}
-
-
-
-.movie-subtitle{
-
-margin:30px 0;
-
-font-size:1.4rem;
-
-color:#ddd;
-
-}
-
-
-
-.stars{
-
-font-size:2rem;
-
-letter-spacing:15px;
-
-margin-bottom:40px;
-
-color:#ffd700;
-
-}
-
-
-
-
-
-/* ANIMATIONS */
-
+/* =========================
+ANIMATIONS
+========================= */
 
 @keyframes fade{
 
-from{
+    from{
 
-opacity:0;
+        opacity:0;
+        transform:scale(.98);
 
-transform:scale(.97);
+    }
 
-}
+    to{
 
-to{
+        opacity:1;
+        transform:scale(1);
 
-opacity:1;
-
-transform:scale(1);
-
-}
+    }
 
 }
 
+@keyframes paperFloat{
 
+    0%,100%{
 
-@keyframes pulse{
+        transform:
+        translateY(0)
+        rotate(-1deg);
 
-0%,100%{
+    }
 
-opacity:.5;
-transform:scale(.9);
+    50%{
 
-}
+        transform:
+        translateY(-10px)
+        rotate(.4deg);
 
-50%{
-
-opacity:1;
-transform:scale(1);
-
-}
-
-}
-
-
-
-@keyframes bounce{
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-}
-
-
-
-@keyframes puppyJump{
-
-50%{
-
-transform:translateY(-20px) rotate(5deg);
-
-}
-
-}
-
-
-
-@keyframes spin{
-
-to{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-
-
-@keyframes titleGlow{
-
-50%{
-
-text-shadow:0 0 30px white;
-
-}
-
-}
-
-
-
-
-
-@media(max-width:700px){
-
-.final-content h1{
-
-font-size:3rem;
-
-letter-spacing:5px;
-
-}
-
-
-.theme-container h1{
-
-font-size:2.2rem;
-
-}
-
+    }
 
 }
