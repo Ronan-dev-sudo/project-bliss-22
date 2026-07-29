@@ -2,250 +2,225 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project Bliss v2 ❤️</title>
+<title>Project Bliss v2 ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
 
-<!-- ========================= -->
-<!-- NETFLIX INTRO -->
-<!-- ========================= -->
-
 <section id="netflixIntro" class="screen active">
 
-    <div class="netflix-logo">
-        N
-    </div>
+<div class="netflix-logo">
+N
+</div>
 
-    <p class="loading-text">
-        Loading your surprise...
-    </p>
+<p class="loading-text">
+Loading your surprise...
+</p>
 
 </section>
 
 
-
-<!-- ========================= -->
-<!-- WELCOME -->
-<!-- ========================= -->
 
 <section id="welcomeScreen" class="screen">
 
-    <div class="welcome-box">
+<div class="welcome-box">
 
-        <h1>
-            Hi Bliss ❤️
-        </h1>
+<h1>
+Hi Bliss ❤️
+</h1>
 
-        <p>
-            Every birthday deserves a story...
-        </p>
+<p>
+Every birthday deserves a story...
+</p>
 
-        <button id="startJourney">
-            Begin
-        </button>
+<button id="startJourney">
+Begin
+</button>
 
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- ========================= -->
-<!-- CHAPTER SELECTION -->
-<!-- ========================= -->
 
 <section id="themeScreen" class="screen">
 
-    <div class="theme-container">
+<div class="theme-container">
 
-        <h1>
-            Choose where the story begins.
-        </h1>
+<h1>
+Choose where the story begins.
+</h1>
 
-        <p>
-            Every chapter was made with you in mind.
-        </p>
-
-
-        <div class="theme-grid">
+<p>
+Every chapter was made with you in mind.
+</p>
 
 
-            <div class="theme-card" id="kittyTheme">
-
-                <div class="emoji">
-                    💕
-                </div>
-
-                <h2>
-                    Chapter One
-                </h2>
-
-                <span>
-                    XO Kitty
-                </span>
-
-            </div>
+<div class="theme-grid">
 
 
+<div class="theme-card" id="kittyTheme">
 
-            <div class="theme-card disabled">
+<div class="emoji">
+💕
+</div>
 
-                <div class="emoji">
-                    🍫
-                </div>
+<h2>
+Chapter One
+</h2>
 
-                <h2>
-                    Chapter Two
-                </h2>
+<span>
+XO Kitty
+</span>
 
-                <span>
-                    KitKat
-                </span>
-
-            </div>
+</div>
 
 
 
-            <div class="theme-card disabled">
+<div class="theme-card disabled">
 
-                <div class="emoji">
-                    🐶
-                </div>
+<div class="emoji">
+🍫
+</div>
 
-                <h2>
-                    Chapter Three
-                </h2>
+<h2>
+Chapter Two
+</h2>
 
-                <span>
-                    Puppy
-                </span>
+<span>
+KitKat
+</span>
 
-            </div>
-
-
-
-            <div class="theme-card disabled">
-
-                <div class="emoji">
-                    🎬
-                </div>
-
-                <h2>
-                    Final Chapter
-                </h2>
-
-                <span>
-                    Netflix
-                </span>
-
-            </div>
+</div>
 
 
-        </div>
+
+<div class="theme-card disabled">
+
+<div class="emoji">
+🐶
+</div>
+
+<h2>
+Chapter Three
+</h2>
+
+<span>
+Puppy
+</span>
+
+</div>
 
 
-    </div>
+
+<div class="theme-card disabled">
+
+<div class="emoji">
+🎬
+</div>
+
+<h2>
+Final Chapter
+</h2>
+
+<span>
+Netflix
+</span>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
 
-
-
-<!-- ========================= -->
-<!-- XO KITTY CHAPTER -->
-<!-- ========================= -->
 
 
 <section id="xoKittyScreen" class="screen">
 
+<div class="kitty-content">
 
-    <div class="kitty-background">
+<div class="kitty">
+🐱
+</div>
 
-        <div class="floating-heart h1">
-            ❤
-        </div>
+<h1>
+Chapter One
+</h1>
 
-        <div class="floating-heart h2">
-            ❤
-        </div>
+<h2>
+XO Kitty
+</h2>
 
-        <div class="floating-heart h3">
-            ❤
-        </div>
+<div id="kittyMessage"></div>
 
-        <div class="floating-heart h4">
-            ❤
-        </div>
+<button id="kittyNext">
+Continue →
+</button>
 
-    </div>
-
-
-
-    <div class="kitty-content">
-
-
-        <div class="kitty">
-            🐱
-        </div>
-
-
-        <h1>
-            Chapter One
-        </h1>
-
-
-        <h2>
-            XO Kitty
-        </h2>
-
-
-        <div id="kittyMessage"></div>
-
-
-        <button id="kittyNext">
-            Continue →
-        </button>
-
-
-    </div>
-
+</div>
 
 </section>
 
 
 
-
-
-
-<!-- ========================= -->
-<!-- CHAPTER TWO TRANSITION -->
-<!-- ========================= -->
 
 
 <section id="chapterTransition" class="screen">
 
+<div class="transition-box">
 
-    <div class="transition-box">
+<div class="loader-circle"></div>
 
-        <div class="loader-circle"></div>
+<h2 id="transitionText">
+Loading Chapter...
+</h2>
+
+</div>
+
+</section>
 
 
-        <h2 id="transitionText">
-            Loading Chapter Two...
-        </h2>
 
 
-    </div>
 
+
+<section id="kitkatScreen" class="screen">
+
+<div class="kitkat-content">
+
+<div class="kitkat-icon">
+🍫
+</div>
+
+<h1>
+Chapter Two
+</h1>
+
+<h2>
+Little Moments
+</h2>
+
+<div id="kitkatMessage"></div>
+
+
+<button id="kitkatNext">
+Continue →
+</button>
+
+</div>
 
 </section>
 
@@ -255,43 +230,37 @@
 
 
 
-<!-- ========================= -->
-<!-- KITKAT CHAPTER -->
-<!-- ========================= -->
+<section id="puppyScreen" class="screen">
 
 
-<section id="kitkatScreen" class="screen">
+<div class="puppy-content">
 
 
-    <div class="kitkat-content">
+<div class="puppy">
+🐶
+</div>
 
 
-        <div class="kitkat-icon">
-            🍫
-        </div>
+<h1>
+Chapter Three
+</h1>
 
 
-        <h1>
-            Chapter Two
-        </h1>
+<h2>
+Pure Happiness
+</h2>
 
 
-        <h2>
-            Little Moments
-        </h2>
+
+<div id="puppyMessage"></div>
 
 
-        <p id="kitkatMessage">
-
-        </p>
-
-
-        <button id="kitkatNext">
-            Continue →
-        </button>
+<button id="puppyNext">
+Continue →
+</button>
 
 
-    </div>
+</div>
 
 
 </section>
