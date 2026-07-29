@@ -6,9 +6,11 @@ const screens = {
     kitty: document.getElementById("xoKittyScreen"),
     transition: document.getElementById("chapterTransition"),
     kitkat: document.getElementById("kitkatScreen"),
-    puppy: document.getElementById("puppyScreen")
+    puppy: document.getElementById("puppyScreen"),
+    final: document.getElementById("finalScreen")
 
 };
+
 
 
 const startJourney = document.getElementById("startJourney");
@@ -21,18 +23,24 @@ const kitkatNext = document.getElementById("kitkatNext");
 
 const puppyNext = document.getElementById("puppyNext");
 
+const letterButton = document.getElementById("letterButton");
+
+
 
 const kittyMessage = document.getElementById("kittyMessage");
+
 const kitkatMessage = document.getElementById("kitkatMessage");
+
 const puppyMessage = document.getElementById("puppyMessage");
 
 const transitionText = document.getElementById("transitionText");
 
 
 
-kittyNext.style.display = "none";
-kitkatNext.style.display = "none";
-puppyNext.style.display = "none";
+kittyNext.style.display="none";
+kitkatNext.style.display="none";
+puppyNext.style.display="none";
+
 
 
 
@@ -40,13 +48,19 @@ function showScreen(screen){
 
     Object.values(screens).forEach(page=>{
 
-        page.classList.remove("active");
+        if(page){
+
+            page.classList.remove("active");
+
+        }
 
     });
+
 
     screen.classList.add("active");
 
 }
+
 
 
 
@@ -71,6 +85,8 @@ startJourney.addEventListener("click",()=>{
 
 
 
+
+
 function typeStory(lines,element,callback){
 
 
@@ -84,8 +100,11 @@ function typeStory(lines,element,callback){
 
         if(index >= lines.length){
 
+
             if(callback){
+
                 callback();
+
             }
 
             return;
@@ -99,7 +118,9 @@ function typeStory(lines,element,callback){
         element.appendChild(p);
 
 
+
         let letter=0;
+
 
 
         function type(){
@@ -107,31 +128,37 @@ function typeStory(lines,element,callback){
 
             if(letter < lines[index].length){
 
+
                 p.textContent += lines[index][letter];
 
                 letter++;
 
+
                 setTimeout(type,35);
 
-            }
 
-            else{
+            }else{
+
 
                 index++;
 
                 setTimeout(nextLine,700);
 
+
             }
+
 
         }
 
 
         type();
 
+
     }
 
 
     nextLine();
+
 
 }
 
@@ -147,6 +174,7 @@ kittyTheme.addEventListener("click",()=>{
 
 
     showScreen(screens.kitty);
+
 
 
     typeStory(
@@ -172,7 +200,6 @@ kittyTheme.addEventListener("click",()=>{
 
     }
 
-
     );
 
 
@@ -184,7 +211,8 @@ kittyTheme.addEventListener("click",()=>{
 
 
 
-// KITTY TO KITKAT
+
+// KITTY → KITKAT
 
 kittyNext.addEventListener("click",()=>{
 
@@ -199,6 +227,7 @@ kittyNext.addEventListener("click",()=>{
 
 
         showScreen(screens.kitkat);
+
 
 
         typeStory(
@@ -231,7 +260,6 @@ kittyNext.addEventListener("click",()=>{
     },2500);
 
 
-
 });
 
 
@@ -240,7 +268,9 @@ kittyNext.addEventListener("click",()=>{
 
 
 
-// KITKAT TO PUPPY
+
+
+// KITKAT → PUPPY
 
 kitkatNext.addEventListener("click",()=>{
 
@@ -249,6 +279,7 @@ kitkatNext.addEventListener("click",()=>{
 
 
     transitionText.textContent="Loading Chapter Three...";
+
 
 
     setTimeout(()=>{
@@ -288,6 +319,37 @@ kitkatNext.addEventListener("click",()=>{
     },2500);
 
 
+});
+
+
+
+
+
+
+
+
+
+// PUPPY → FINAL CHAPTER
+
+puppyNext.addEventListener("click",()=>{
+
+
+    showScreen(screens.transition);
+
+
+    transitionText.textContent="Preparing the final chapter...";
+
+
+
+    setTimeout(()=>{
+
+
+        showScreen(screens.final);
+
+
+
+    },3000);
+
 
 });
 
@@ -297,15 +359,13 @@ kitkatNext.addEventListener("click",()=>{
 
 
 
-// PUPPY TO FINAL
 
-puppyNext.addEventListener("click",()=>{
+// LETTER BUTTON (COMING NEXT)
 
-
-    showScreen(screens.transition);
+letterButton.addEventListener("click",()=>{
 
 
-    transitionText.textContent="Preparing the final chapter...";
+    alert("💌 The letter chapter is next.");
 
 
 });
