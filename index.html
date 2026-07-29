@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Bliss v2</title>
+    <title>Project Bliss v2 ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ========================= -->
     <!-- NETFLIX INTRO -->
+    <!-- ========================= -->
+
     <section id="netflixIntro" class="screen active">
 
         <div class="netflix-logo">N</div>
@@ -20,7 +23,10 @@
 
     </section>
 
+    <!-- ========================= -->
     <!-- WELCOME -->
+    <!-- ========================= -->
+
     <section id="welcomeScreen" class="screen">
 
         <div class="welcome-box">
@@ -28,7 +34,7 @@
             <h1>Hi Bliss ❤️</h1>
 
             <p>
-                I made something special just for you.
+                Every birthday deserves a story...
             </p>
 
             <button id="startJourney">
@@ -39,52 +45,98 @@
 
     </section>
 
-    <!-- THEME SELECTION -->
+    <!-- ========================= -->
+    <!-- CHAPTER SELECTION -->
+    <!-- ========================= -->
+
     <section id="themeScreen" class="screen">
 
         <div class="theme-container">
 
-            <h1>Choose Your Adventure ✨</h1>
+            <h1>Choose where the story begins.</h1>
 
             <p>
-                Every choice has a little surprise waiting...
+                Every chapter was made with you in mind.
             </p>
 
             <div class="theme-grid">
 
                 <div class="theme-card" id="kittyTheme">
+
                     <div class="emoji">💕</div>
-                    <h2>XO Kitty</h2>
-                    <p>
-                        Cute. Pink. Cozy.
-                    </p>
+
+                    <h2>Chapter One</h2>
+
+                    <span>XO Kitty</span>
+
                 </div>
 
-                <div class="theme-card" id="kitkatTheme">
+                <div class="theme-card disabled">
+
                     <div class="emoji">🍫</div>
-                    <h2>KitKat</h2>
-                    <p>
-                        Sweet little moments.
-                    </p>
+
+                    <h2>Chapter Two</h2>
+
+                    <span>Locked</span>
+
                 </div>
 
-                <div class="theme-card" id="puppyTheme">
+                <div class="theme-card disabled">
+
                     <div class="emoji">🐶</div>
-                    <h2>Puppy</h2>
-                    <p>
-                        Endless happiness.
-                    </p>
+
+                    <h2>Chapter Three</h2>
+
+                    <span>Locked</span>
+
                 </div>
 
-                <div class="theme-card" id="movieTheme">
+                <div class="theme-card disabled">
+
                     <div class="emoji">🎬</div>
-                    <h2>Netflix</h2>
-                    <p>
-                        One final story.
-                    </p>
+
+                    <h2>Final Chapter</h2>
+
+                    <span>Locked</span>
+
                 </div>
 
             </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- XO KITTY -->
+    <!-- ========================= -->
+
+    <section id="xoKittyScreen" class="screen">
+
+        <div class="kitty-background">
+
+            <div class="floating-heart h1">❤</div>
+            <div class="floating-heart h2">❤</div>
+            <div class="floating-heart h3">❤</div>
+            <div class="floating-heart h4">❤</div>
+
+        </div>
+
+        <div class="kitty-content">
+
+            <div class="kitty">🐱</div>
+
+            <h1>Chapter One</h1>
+
+            <h2>XO Kitty</h2>
+
+            <p id="kittyMessage">
+                ...
+            </p>
+
+            <button id="kittyNext">
+                Continue →
+            </button>
 
         </div>
 
