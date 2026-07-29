@@ -1,436 +1,500 @@
+/* ==========================
+   PROJECT BLISS V2
+   CINEMATIC STYLE
+========================== */
+
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+
+html,
+body{
+
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     font-family:"Poppins",sans-serif;
+
     background:#000;
-    color:#fff;
+
+    color:white;
+
 }
 
-body{
-    position:relative;
-}
 
-/* ===========================
-   Screens
-=========================== */
+
+
+
+/* ==========================
+   SCREEN SYSTEM
+========================== */
+
 
 .screen{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
-    display:none;
+
+
+    display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
+
     padding:30px;
+
+
     opacity:0;
-    transition:opacity .8s ease;
+
+    pointer-events:none;
+
+
+    transform:scale(1.05);
+
+
+    transition:
+
+    opacity 1.2s ease,
+
+    transform 1.2s ease;
+
+
 }
+
+
 
 .screen.active{
-    display:flex;
+
     opacity:1;
-}
 
-/* ===========================
-   Netflix Intro
-=========================== */
+    pointer-events:auto;
 
-#netflixScreen{
-    background:#000;
-}
-
-.netflix-logo{
-    color:#e50914;
-    font-size:clamp(2.5rem,8vw,6rem);
-    font-weight:700;
-    letter-spacing:10px;
-    animation:logoReveal 2.8s ease forwards;
-    text-shadow:
-        0 0 15px rgba(229,9,20,.5),
-        0 0 40px rgba(229,9,20,.4);
-}
-
-@keyframes logoReveal{
-
-    0%{
-        opacity:0;
-        transform:scale(.2);
-        letter-spacing:30px;
-    }
-
-    50%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:1;
-        transform:scale(1);
-        letter-spacing:10px;
-    }
+    transform:scale(1);
 
 }
 
-/* ===========================
-   Welcome
-=========================== */
 
-.welcome-box{
-    max-width:700px;
-}
 
-.welcome-box h1{
-    font-size:clamp(2rem,5vw,3.5rem);
-    margin-bottom:20px;
-}
 
-.welcome-box p{
-    font-size:1.1rem;
-    line-height:2;
-    color:#ddd;
-    white-space:pre-line;
-}
 
-/* ===========================
-   Buttons
-=========================== */
+/* ==========================
+   GLOBAL CONTENT
+========================== */
 
-button{
-    border:none;
-    cursor:pointer;
-    font-family:inherit;
-}
 
-.main-btn,
-.next-btn{
+.content{
 
-    margin-top:35px;
+    max-width:750px;
 
-    padding:15px 35px;
-
-    border-radius:50px;
-
-    background:#ff4f8b;
-
-    color:white;
-
-    font-size:1rem;
-
-    transition:.3s;
+    animation:fadeUp 1.5s ease;
 
 }
 
-.main-btn:hover,
-.next-btn:hover{
 
-    transform:translateY(-3px);
 
-    background:#ff78a8;
+.content h1{
 
-}
+    font-family:"Playfair Display",serif;
 
-/* ===========================
-   Music Button
-=========================== */
-
-.music-btn{
-
-    position:fixed;
-
-    top:20px;
-
-    right:20px;
-
-    z-index:999;
-
-    width:55px;
-
-    height:55px;
-
-    border-radius:50%;
-
-    background:#ffffff15;
-
-    color:white;
-
-    backdrop-filter:blur(10px);
-
-    font-size:22px;
-
-}
-
-/* ===========================
-   Theme Screen
-=========================== */
-
-.theme-grid{
-
-    display:flex;
-
-    gap:25px;
-
-    margin-top:40px;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-}
-
-.theme-card{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:25px;
-
-    background:#ffffff12;
-
-    color:white;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    font-size:3rem;
-
-    transition:.35s;
-
-}
-
-.theme-card span{
-
-    font-size:1rem;
-
-}
-
-.theme-card:hover{
-
-    transform:translateY(-10px) scale(1.05);
-
-    background:#ff4f8b;
-
-}
-
-.theme-content{
-
-    max-width:800px;
-
-}
-
-.theme-content h2{
-
-    font-size:3rem;
+    font-size:clamp(2.5rem,6vw,4.5rem);
 
     margin-bottom:25px;
 
 }
 
-.image-placeholder{
 
-    width:min(400px,90vw);
 
-    aspect-ratio:1;
+.content p{
 
-    border:2px dashed #777;
-
-    border-radius:25px;
-
-    margin:0 auto 30px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#aaa;
-
-}
-
-.theme-text{
+    font-size:1.15rem;
 
     line-height:2;
 
-    font-size:1.1rem;
-
-    color:#eee;
+    color:#f3f3f3;
 
     white-space:pre-line;
 
 }
 
-/* ===========================
-   Final Screen
-=========================== */
 
-.final-content{
 
-    max-width:700px;
 
-}
+button{
 
-.final-content h1{
 
-    font-size:3rem;
+    margin-top:35px;
 
-    margin-bottom:20px;
 
-}
+    padding:16px 40px;
 
-/* ===========================
-   Envelope
-=========================== */
 
-.envelope{
+    border-radius:50px;
 
-    width:260px;
 
-    height:170px;
+    border:none;
 
-    position:relative;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ff4f91,
+        #ff9fc4
+    );
+
+
+    color:white;
+
+
+    font-size:1rem;
+
 
     cursor:pointer;
 
-    transition:.6s;
+
+    transition:.4s;
+
+
+    box-shadow:
+
+    0 0 20px rgba(255,79,145,.5);
+
 
 }
 
-.envelope:hover{
 
-    transform:scale(1.05);
 
-}
+button:hover{
 
-.envelope-body{
 
-    position:absolute;
+    transform:translateY(-5px) scale(1.05);
 
-    bottom:0;
 
-    width:100%;
+    box-shadow:
 
-    height:120px;
+    0 0 35px rgba(255,79,145,.8);
 
-    background:#ffb6c1;
-
-    border-radius:0 0 12px 12px;
 
 }
 
-.envelope-top{
 
-    position:absolute;
 
-    width:100%;
 
-    height:120px;
 
-    background:#ff8eb3;
+@keyframes fadeUp{
 
-    clip-path:polygon(0 0,100% 0,50% 100%);
 
-    transform-origin:top;
+    from{
 
-}
+        opacity:0;
 
-.letter-peek{
+        transform:translateY(40px);
 
-    position:absolute;
+    }
 
-    left:15px;
 
-    top:15px;
+    to{
 
-    width:230px;
+        opacity:1;
 
-    height:120px;
+        transform:translateY(0);
 
-    background:white;
+    }
 
-    border-radius:10px;
 
 }
 
-.tap-text{
 
-    margin-top:40px;
 
-    color:#ddd;
 
-}
 
-/* ===========================
-   Letter
-=========================== */
+/* ==========================
+   MUSIC BUTTON
+========================== */
 
-.letter-card{
 
-    width:min(900px,95vw);
+.music-btn{
 
-    max-height:85vh;
 
-    overflow:auto;
+    position:fixed;
 
-    background:#fff;
 
-    color:#222;
+    top:25px;
 
-    border-radius:25px;
+    right:25px;
 
-    padding:40px;
 
-}
+    z-index:1000;
 
-.letter-card h2{
 
-    color:#ff4f8b;
+    width:55px;
 
-    margin-bottom:30px;
+    height:55px;
 
-    font-family:"Playfair Display",serif;
 
-}
+    padding:0;
 
-.typewriter{
 
-    text-align:left;
+    margin:0;
 
-    line-height:2;
 
-    white-space:pre-wrap;
+    border-radius:50%;
 
-    font-size:1.05rem;
+
+    background:#ffffff20;
+
+
+    backdrop-filter:blur(10px);
+
 
 }
 
-/* ===========================
-   Ending
-=========================== */
 
-#endingScreen{
 
-    background:linear-gradient(#000,#081325);
+
+
+/* ==========================
+   NETFLIX INTRO
+========================== */
+
+
+#netflixScreen{
+
+
+    background:#000;
+
 
 }
 
-#stars{
+
+
+.netflix-container h1{
+
+
+    font-size:
+
+    clamp(3rem,10vw,7rem);
+
+
+    letter-spacing:15px;
+
+
+    color:#e50914;
+
+
+    animation:
+
+    netflixReveal 3s ease;
+
+
+}
+
+
+
+.netflix-container p{
+
+
+    margin-top:20px;
+
+
+    opacity:0;
+
+
+    animation:
+
+    subtitleReveal 3s ease forwards;
+
+
+    animation-delay:1s;
+
+
+}
+
+
+
+
+@keyframes netflixReveal{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.4);
+
+        letter-spacing:50px;
+
+    }
+
+
+    50%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+        letter-spacing:15px;
+
+    }
+
+
+}
+
+
+
+@keyframes subtitleReveal{
+
+
+    from{
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+/* ==========================
+   CHAPTER SELECT
+========================== */
+
+
+#themeScreen{
+
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        #24101d,
+        #000
+    );
+
+
+}
+
+
+
+.chapter-container{
+
+
+    display:flex;
+
+
+    gap:35px;
+
+
+    flex-wrap:wrap;
+
+
+    justify-content:center;
+
+
+    margin-top:50px;
+
+
+}
+
+
+
+.chapter{
+
+
+    width:190px;
+
+
+    height:190px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    flex-direction:column;
+
+
+    gap:20px;
+
+
+    background:#ffffff12;
+
+
+    backdrop-filter:blur(15px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+.chapter span{
+
+
+    font-size:4rem;
+
+
+}
+
+
+
+
+
+/* ==========================
+   XO KITTY
+========================== */
+
+
+#xoScreen{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ffb7d5,
+        #ffe5f0
+    );
+
+
+    color:#7d3154;
+
+
+}
+
+
+
+.petals{
+
 
     position:absolute;
 
@@ -438,124 +502,840 @@ button{
 
     overflow:hidden;
 
+
 }
 
-#stars::before{
 
-    content:"";
+
+.petals::before{
+
+
+    content:"🌸 🌸 🌸 🌸 🌸";
+
 
     position:absolute;
 
-    inset:0;
 
-    background-image:
-    radial-gradient(circle,#fff 1px,transparent 1px);
+    font-size:3rem;
 
-    background-size:40px 40px;
 
-    opacity:.35;
+    animation:
 
-    animation:stars 40s linear infinite;
+    fallingPetals 12s linear infinite;
+
 
 }
 
-@keyframes stars{
+
+
+@keyframes fallingPetals{
+
 
     from{
 
-        transform:translateY(0);
+        transform:
+
+        translateY(-20vh)
+
+        translateX(0);
 
     }
+
 
     to{
 
-        transform:translateY(-400px);
+        transform:
+
+        translateY(120vh)
+
+        translateX(100px);
 
     }
 
+
 }
 
-.ending-content{
+
+
+
+
+/* ==========================
+   KITKAT
+========================== */
+
+
+#kitkatScreen{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #5b2917,
+        #1b0804
+    );
+
+
+}
+
+
+
+.chocolate::before{
+
+
+    content:"🍫 ❤️ 🍫 ❤️ 🍫";
+
+
+    position:absolute;
+
+
+    font-size:3rem;
+
+
+    animation:
+
+    chocolateFloat 8s ease-in-out infinite;
+
+
+}
+
+
+
+@keyframes chocolateFloat{
+
+
+    0%{
+
+        transform:
+
+        translateY(100vh)
+        rotate(0);
+
+    }
+
+
+    100%{
+
+        transform:
+
+        translateY(-20vh)
+        rotate(360deg);
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================
+   PUPPY
+========================== */
+
+
+#puppyScreen{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #f6d6a8,
+        #8b5e34
+    );
+
+
+}
+
+
+
+.paws::before{
+
+
+    content:
+
+    "🐾 🐾 🐾 🐾 🐾";
+
+
+    position:absolute;
+
+
+    font-size:3rem;
+
+
+    animation:
+
+    pawWalk 10s linear infinite;
+
+
+}
+
+
+
+@keyframes pawWalk{
+
+
+    from{
+
+        transform:
+
+        translateX(-100vw)
+        rotate(-20deg);
+
+    }
+
+
+    to{
+
+        transform:
+
+        translateX(100vw)
+        rotate(20deg);
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================
+   FINAL CHAPTER
+========================== */
+
+
+#finalScreen{
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    #301526,
+
+    #000
+
+    );
+
+
+}
+
+
+
+
+
+/* ==========================
+   ENVELOPE
+========================== */
+
+
+#envelopeScreen{
+
+
+    background:
+
+    linear-gradient(
+
+    #1c0814,
+
+    #000
+
+    );
+
+
+}
+
+
+
+.envelope{
+
+
+    width:280px;
+
+
+    height:190px;
+
 
     position:relative;
 
-    z-index:2;
+
+    cursor:pointer;
+
+
+    animation:
+
+    envelopeFloat 3s ease-in-out infinite;
+
 
 }
 
-.ending-content h1{
 
-    font-size:clamp(2.2rem,6vw,4rem);
 
-    margin-bottom:20px;
+@keyframes envelopeFloat{
 
-}
 
-.ending-content p{
+    50%{
 
-    color:#ddd;
+        transform:
 
-}
+        translateY(-15px);
 
-/* ===========================
-   Scrollbar
-=========================== */
+    }
 
-::-webkit-scrollbar{
-
-    width:8px;
 
 }
 
-::-webkit-scrollbar-thumb{
 
-    background:#ff4f8b;
+
+.flap{
+
+
+    position:absolute;
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    background:#ff8db7;
+
+
+    clip-path:
+
+    polygon(
+
+    0 0,
+
+    100% 0,
+
+    50% 65%
+
+    );
+
+
+    transform-origin:top;
+
+
+    transition:1s;
+
+
+}
+
+
+
+.paper{
+
+
+    position:absolute;
+
+
+    width:85%;
+
+
+    height:75%;
+
+
+    background:white;
+
+
+    bottom:10px;
+
+
+    left:7.5%;
+
 
     border-radius:10px;
 
-}
-
-/* ===========================
-   Mobile
-=========================== */
-
-@media(max-width:768px){
-
-.theme-card{
-
-width:140px;
-
-height:140px;
-
-font-size:2.2rem;
 
 }
 
-.theme-content h2{
 
-font-size:2rem;
+/* ==========================
+   LETTER
+========================== */
+
+
+#letterScreen{
+
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #fff0f5,
+
+    #ffd1e1
+
+    );
+
+
+    color:#222;
+
 
 }
 
-.main-btn,
-.next-btn{
 
-width:100%;
-
-max-width:300px;
-
-}
 
 .letter-card{
 
-padding:25px;
+
+    width:min(850px,95vw);
+
+
+    max-height:80vh;
+
+
+    overflow-y:auto;
+
+
+    background:white;
+
+
+    padding:45px;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 0 50px rgba(255,255,255,.3);
+
+
+    animation:
+
+    letterAppear 1.5s ease;
+
 
 }
 
-.welcome-box p{
 
-font-size:1rem;
+
+@keyframes letterAppear{
+
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(50px)
+
+        scale(.9);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+    }
+
 
 }
+
+
+
+.letter-card h1{
+
+
+    font-family:
+
+    "Great Vibes",
+    cursive;
+
+
+    font-size:4rem;
+
+
+    color:#ff4f91;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+#typewriter{
+
+
+    text-align:left;
+
+
+    line-height:2;
+
+
+    font-size:1.05rem;
+
+
+    color:#333;
+
+
+    white-space:pre-line;
+
+
+}
+
+
+
+#typewriter::after{
+
+
+    content:"|";
+
+
+    animation:
+
+    cursorBlink .8s infinite;
+
+
+}
+
+
+
+@keyframes cursorBlink{
+
+
+    50%{
+
+        opacity:0;
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================
+   ENDING
+========================== */
+
+
+#endingScreen{
+
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    #182848,
+
+    #000
+
+    );
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.stars{
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+}
+
+
+
+.stars::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    background-image:
+
+    radial-gradient(
+        white 1px,
+        transparent 1px
+    );
+
+
+    background-size:
+
+    50px 50px;
+
+
+    animation:
+
+    starMove 30s linear infinite;
+
+
+}
+
+
+
+@keyframes starMove{
+
+
+    from{
+
+        transform:
+
+        translateY(0);
+
+    }
+
+
+    to{
+
+        transform:
+
+        translateY(-300px);
+
+    }
+
+
+}
+
+
+
+.ending-content{
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+}
+
+
+
+.ending-content h1{
+
+
+    font-family:
+
+    "Great Vibes",
+    cursive;
+
+
+    font-size:
+
+    clamp(
+
+    3rem,
+
+    8vw,
+
+    6rem
+
+    );
+
+
+    animation:
+
+    glow 3s infinite alternate;
+
+
+}
+
+
+
+.ending-content h2{
+
+
+    margin-top:25px;
+
+
+    font-family:
+
+    "Great Vibes",
+    cursive;
+
+
+    font-size:3rem;
+
+
+}
+
+
+
+@keyframes glow{
+
+
+    from{
+
+        text-shadow:
+
+        0 0 10px white;
+
+    }
+
+
+    to{
+
+        text-shadow:
+
+        0 0 40px #ff9fc4;
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+
+    .content h1{
+
+
+        font-size:2.5rem;
+
+
+    }
+
+
+
+    .content p{
+
+
+        font-size:.95rem;
+
+
+    }
+
+
+
+    .chapter-container{
+
+
+        gap:15px;
+
+
+    }
+
+
+
+    .chapter{
+
+
+        width:130px;
+
+
+        height:130px;
+
+
+    }
+
+
+
+    .chapter span{
+
+
+        font-size:2.5rem;
+
+
+    }
+
+
+
+    .letter-card{
+
+
+        padding:25px;
+
+
+    }
+
+
+
+    .letter-card h1{
+
+
+        font-size:3rem;
+
+
+    }
+
+
+
+}
+
+
+
+@media(max-width:450px){
+
+
+
+    .chapter-container{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+    .chapter{
+
+
+        width:180px;
+
+
+        height:90px;
+
+
+    }
+
+
+
+}
+        opacity:.8;
+
+    }
+
 
 }
