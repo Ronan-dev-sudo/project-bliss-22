@@ -1,500 +1,287 @@
-/* ==========================
-   PROJECT BLISS V2
-   CINEMATIC STYLE
-========================== */
-
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-
-html,
-body{
-
+html,body{
     width:100%;
     height:100%;
-
     overflow:hidden;
-
     font-family:"Poppins",sans-serif;
-
     background:#000;
-
     color:white;
-
 }
 
-
-
-
-
-/* ==========================
-   SCREEN SYSTEM
-========================== */
-
-
 .screen{
-
     position:absolute;
-
     inset:0;
-
     width:100%;
     height:100%;
-
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     flex-direction:column;
-
     text-align:center;
-
-
     padding:30px;
 
-
     opacity:0;
-
     pointer-events:none;
-
 
     transform:scale(1.05);
 
-
     transition:
-
     opacity 1.2s ease,
-
     transform 1.2s ease;
-
-
 }
-
-
 
 .screen.active{
-
     opacity:1;
-
     pointer-events:auto;
-
     transform:scale(1);
-
 }
-
-
-
-
-
-/* ==========================
-   GLOBAL CONTENT
-========================== */
 
 
 .content{
-
     max-width:750px;
-
-    animation:fadeUp 1.5s ease;
-
+    animation:fadeUp 1.2s ease;
 }
-
 
 
 .content h1{
-
     font-family:"Playfair Display",serif;
-
     font-size:clamp(2.5rem,6vw,4.5rem);
-
     margin-bottom:25px;
-
 }
-
 
 
 .content p{
-
-    font-size:1.15rem;
-
+    font-size:1.1rem;
     line-height:2;
-
-    color:#f3f3f3;
-
+    color:#eee;
     white-space:pre-line;
-
 }
-
-
 
 
 button{
-
-
     margin-top:35px;
-
-
     padding:16px 40px;
-
-
+    border:none;
     border-radius:50px;
 
-
-    border:none;
-
-
     background:
-
-    linear-gradient(
-        135deg,
-        #ff4f91,
-        #ff9fc4
-    );
-
+    linear-gradient(135deg,#ff4f91,#ff9fc4);
 
     color:white;
-
-
     font-size:1rem;
-
 
     cursor:pointer;
 
-
     transition:.4s;
 
-
     box-shadow:
-
     0 0 20px rgba(255,79,145,.5);
-
-
 }
-
 
 
 button:hover{
-
-
     transform:translateY(-5px) scale(1.05);
 
-
     box-shadow:
-
     0 0 35px rgba(255,79,145,.8);
-
-
 }
-
-
-
 
 
 @keyframes fadeUp{
 
-
     from{
-
         opacity:0;
-
         transform:translateY(40px);
-
     }
-
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
-
 
 }
 
 
-
-
-
-/* ==========================
-   MUSIC BUTTON
-========================== */
-
+/* MUSIC */
 
 .music-btn{
-
-
     position:fixed;
 
-
     top:25px;
-
     right:25px;
-
 
     z-index:1000;
 
-
     width:55px;
-
     height:55px;
 
-
     padding:0;
-
-
     margin:0;
-
 
     border-radius:50%;
 
-
     background:#ffffff20;
 
-
     backdrop-filter:blur(10px);
-
-
 }
 
 
-
-
-
-/* ==========================
-   NETFLIX INTRO
-========================== */
+/* NETFLIX */
 
 
 #netflixScreen{
-
-
     background:#000;
-
-
 }
-
 
 
 .netflix-container h1{
 
-
     font-size:
-
     clamp(3rem,10vw,7rem);
-
 
     letter-spacing:15px;
 
-
     color:#e50914;
 
-
     animation:
-
     netflixReveal 3s ease;
-
-
 }
-
 
 
 .netflix-container p{
 
-
     margin-top:20px;
-
 
     opacity:0;
 
-
     animation:
-
     subtitleReveal 3s ease forwards;
 
-
     animation-delay:1s;
-
-
 }
-
-
 
 
 @keyframes netflixReveal{
 
-
     0%{
-
         opacity:0;
-
         transform:scale(.4);
-
         letter-spacing:50px;
-
     }
-
 
     50%{
-
         opacity:1;
-
     }
-
 
     100%{
-
         transform:scale(1);
-
         letter-spacing:15px;
-
     }
 
-
 }
-
 
 
 @keyframes subtitleReveal{
 
-
     from{
-
         opacity:0;
-
     }
 
-
     to{
+        opacity:.8;
+    }
 
-/* ==========================
-   CHAPTER SELECT
-========================== */
-
+}
+/* CHAPTER SELECT */
 
 #themeScreen{
 
-
     background:
-
     radial-gradient(
-        circle at center,
-        #24101d,
+        circle,
+        #321526,
         #000
     );
 
-
 }
-
 
 
 .chapter-container{
 
-
     display:flex;
-
-
-    gap:35px;
-
-
-    flex-wrap:wrap;
-
 
     justify-content:center;
 
+    align-items:center;
 
-    margin-top:50px;
+    gap:35px;
 
+    flex-wrap:wrap;
+
+    margin-top:45px;
 
 }
 
 
-
 .chapter{
-
 
     width:190px;
 
-
     height:190px;
-
 
     display:flex;
 
-
     justify-content:center;
-
 
     align-items:center;
 
-
     flex-direction:column;
-
 
     gap:20px;
 
-
-    background:#ffffff12;
-
-
-    backdrop-filter:blur(15px);
-
+    background:#ffffff15;
 
     border:
 
     1px solid rgba(255,255,255,.2);
 
+    backdrop-filter:blur(15px);
 
 }
-
 
 
 .chapter span{
 
-
     font-size:4rem;
-
 
 }
 
 
 
-
-
-/* ==========================
-   XO KITTY
-========================== */
+/* XO KITTY */
 
 
 #xoScreen{
-
 
     background:
 
     linear-gradient(
         135deg,
         #ffb7d5,
-        #ffe5f0
+        #ffe8f2
     );
 
-
-    color:#7d3154;
-
+    color:#6e3150;
 
 }
 
 
-
 .petals{
-
 
     position:absolute;
 
@@ -502,41 +289,30 @@ button:hover{
 
     overflow:hidden;
 
-
 }
-
 
 
 .petals::before{
 
-
     content:"🌸 🌸 🌸 🌸 🌸";
-
 
     position:absolute;
 
-
     font-size:3rem;
 
-
     animation:
-
     fallingPetals 12s linear infinite;
-
 
 }
 
 
-
 @keyframes fallingPetals{
-
 
     from{
 
         transform:
 
         translateY(-20vh)
-
         translateX(0);
 
     }
@@ -547,34 +323,26 @@ button:hover{
         transform:
 
         translateY(120vh)
-
-        translateX(100px);
+        translateX(120px);
 
     }
-
 
 }
 
 
 
-
-
-/* ==========================
-   KITKAT
-========================== */
+/* KITKAT */
 
 
 #kitkatScreen{
-
 
     background:
 
     linear-gradient(
         135deg,
-        #5b2917,
-        #1b0804
+        #5a2917,
+        #150603
     );
-
 
 }
 
@@ -582,39 +350,32 @@ button:hover{
 
 .chocolate::before{
 
-
     content:"🍫 ❤️ 🍫 ❤️ 🍫";
-
 
     position:absolute;
 
-
     font-size:3rem;
-
 
     animation:
 
     chocolateFloat 8s ease-in-out infinite;
 
-
 }
-
 
 
 @keyframes chocolateFloat{
 
-
-    0%{
+    from{
 
         transform:
 
         translateY(100vh)
-        rotate(0);
+        rotate(0deg);
 
     }
 
 
-    100%{
+    to{
 
         transform:
 
@@ -623,20 +384,14 @@ button:hover{
 
     }
 
-
 }
 
 
 
-
-
-/* ==========================
-   PUPPY
-========================== */
+/* PUPPY */
 
 
 #puppyScreen{
-
 
     background:
 
@@ -646,43 +401,31 @@ button:hover{
         #8b5e34
     );
 
-
 }
-
 
 
 .paws::before{
 
-
-    content:
-
-    "🐾 🐾 🐾 🐾 🐾";
-
+    content:"🐾 🐾 🐾 🐾 🐾";
 
     position:absolute;
 
-
     font-size:3rem;
-
 
     animation:
 
-    pawWalk 10s linear infinite;
-
+    pawMove 10s linear infinite;
 
 }
 
 
-
-@keyframes pawWalk{
-
+@keyframes pawMove{
 
     from{
 
         transform:
 
-        translateX(-100vw)
-        rotate(-20deg);
+        translateX(-100vw);
 
     }
 
@@ -691,94 +434,64 @@ button:hover{
 
         transform:
 
-        translateX(100vw)
-        rotate(20deg);
+        translateX(100vw);
 
     }
-
 
 }
 
 
 
-
-
-/* ==========================
-   FINAL CHAPTER
-========================== */
+/* FINAL */
 
 
 #finalScreen{
 
-
     background:
 
     radial-gradient(
-
-    circle,
-
-    #301526,
-
-    #000
-
+        circle,
+        #351629,
+        #000
     );
-
 
 }
 
 
 
-
-
-/* ==========================
-   ENVELOPE
-========================== */
+/* ENVELOPE */
 
 
 #envelopeScreen{
 
-
     background:
 
     linear-gradient(
-
-    #1c0814,
-
-    #000
-
+        #1b0814,
+        #000
     );
 
-
 }
-
 
 
 .envelope{
 
-
     width:280px;
-
 
     height:190px;
 
-
     position:relative;
-
 
     cursor:pointer;
 
-
     animation:
 
-    envelopeFloat 3s ease-in-out infinite;
-
+    floatEnvelope 3s ease-in-out infinite;
 
 }
 
 
-
-@keyframes envelopeFloat{
-
+@keyframes floatEnvelope{
 
     50%{
 
@@ -788,141 +501,95 @@ button:hover{
 
     }
 
-
 }
-
 
 
 .flap{
 
-
     position:absolute;
-
 
     width:100%;
 
-
     height:100%;
 
-
     background:#ff8db7;
-
 
     clip-path:
 
     polygon(
-
-    0 0,
-
-    100% 0,
-
-    50% 65%
-
+        0 0,
+        100% 0,
+        50% 65%
     );
-
 
     transform-origin:top;
 
-
     transition:1s;
 
-
 }
-
 
 
 .paper{
 
-
     position:absolute;
-
 
     width:85%;
 
-
     height:75%;
-
-
-    background:white;
-
 
     bottom:10px;
 
-
     left:7.5%;
 
+    background:white;
 
     border-radius:10px;
 
-
 }
-
-
-/* ==========================
-   LETTER
-========================== */
+/* LETTER */
 
 
 #letterScreen{
 
-
     background:
 
     linear-gradient(
-
-    135deg,
-
-    #fff0f5,
-
-    #ffd1e1
-
+        135deg,
+        #fff0f5,
+        #ffd1e1
     );
 
-
     color:#222;
-
 
 }
 
 
-
 .letter-card{
-
 
     width:min(850px,95vw);
 
-
     max-height:80vh;
-
 
     overflow-y:auto;
 
-
     background:white;
-
 
     padding:45px;
 
-
     border-radius:30px;
-
 
     box-shadow:
 
     0 0 50px rgba(255,255,255,.3);
 
-
     animation:
 
     letterAppear 1.5s ease;
 
-
 }
 
 
-
 @keyframes letterAppear{
-
 
     from{
 
@@ -931,7 +598,6 @@ button:hover{
         transform:
 
         translateY(50px)
-
         scale(.9);
 
     }
@@ -944,77 +610,55 @@ button:hover{
         transform:
 
         translateY(0)
-
         scale(1);
 
     }
 
-
 }
-
 
 
 .letter-card h1{
 
-
     font-family:
-
     "Great Vibes",
     cursive;
 
-
     font-size:4rem;
-
 
     color:#ff4f91;
 
-
     margin-bottom:30px;
 
-
 }
-
 
 
 #typewriter{
 
-
     text-align:left;
-
 
     line-height:2;
 
-
     font-size:1.05rem;
-
 
     color:#333;
 
-
     white-space:pre-line;
 
-
 }
-
 
 
 #typewriter::after{
 
-
     content:"|";
-
 
     animation:
 
-    cursorBlink .8s infinite;
-
+    blink .8s infinite;
 
 }
 
 
-
-@keyframes cursorBlink{
-
+@keyframes blink{
 
     50%{
 
@@ -1022,62 +666,44 @@ button:hover{
 
     }
 
-
 }
 
 
 
 
 
-/* ==========================
-   ENDING
-========================== */
+/* ENDING */
 
 
 #endingScreen{
 
-
     background:
 
     radial-gradient(
-
-    circle,
-
-    #182848,
-
-    #000
-
+        circle,
+        #182848,
+        #000
     );
-
 
     overflow:hidden;
 
-
 }
-
 
 
 .stars{
 
-
     position:absolute;
 
-
     inset:0;
-
 
 }
 
 
-
 .stars::before{
-
 
     content:"";
 
-
     position:absolute;
-
 
     inset:0;
 
@@ -1097,15 +723,12 @@ button:hover{
 
     animation:
 
-    starMove 30s linear infinite;
-
+    moveStars 30s linear infinite;
 
 }
 
 
-
-@keyframes starMove{
-
+@keyframes moveStars{
 
     from{
 
@@ -1124,26 +747,20 @@ button:hover{
 
     }
 
-
 }
 
 
 
 .ending-content{
 
-
     position:relative;
 
-
     z-index:2;
-
 
 }
 
 
-
 .ending-content h1{
-
 
     font-family:
 
@@ -1154,13 +771,9 @@ button:hover{
     font-size:
 
     clamp(
-
-    3rem,
-
-    8vw,
-
-    6rem
-
+        3rem,
+        8vw,
+        6rem
     );
 
 
@@ -1168,32 +781,25 @@ button:hover{
 
     glow 3s infinite alternate;
 
-
 }
-
 
 
 .ending-content h2{
 
-
     margin-top:25px;
-
 
     font-family:
 
     "Great Vibes",
     cursive;
 
-
     font-size:3rem;
-
 
 }
 
 
 
 @keyframes glow{
-
 
     from{
 
@@ -1212,94 +818,67 @@ button:hover{
 
     }
 
-
 }
 
 
 
 
 
-/* ==========================
-   MOBILE RESPONSIVE
-========================== */
+/* MOBILE */
 
 
 @media(max-width:768px){
 
 
-
     .content h1{
-
 
         font-size:2.5rem;
 
-
     }
-
 
 
     .content p{
 
-
         font-size:.95rem;
 
-
     }
-
 
 
     .chapter-container{
 
-
         gap:15px;
 
-
     }
-
 
 
     .chapter{
 
+        width:140px;
 
-        width:130px;
-
-
-        height:130px;
-
+        height:140px;
 
     }
-
 
 
     .chapter span{
 
-
         font-size:2.5rem;
 
-
     }
-
 
 
     .letter-card{
 
-
         padding:25px;
 
-
     }
-
 
 
     .letter-card h1{
 
-
         font-size:3rem;
 
-
     }
-
-
 
 }
 
@@ -1308,34 +887,19 @@ button:hover{
 @media(max-width:450px){
 
 
-
     .chapter-container{
-
 
         flex-direction:column;
 
-
     }
-
 
 
     .chapter{
 
-
         width:180px;
-
 
         height:90px;
 
-
     }
-
-
-
-}
-        opacity:.8;
-
-    }
-
 
 }
